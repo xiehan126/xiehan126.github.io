@@ -1,0 +1,377 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>如何搭建一个HEXO | 码农小晗晗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="解晗">
+    
+    <meta name="description" content="名词解释：
+Node：Node是一个服务器端 JavaScript 解释器。它本身运行Google  V8 JavaScript引擎，所以速度和性能非常好。 
+
+GitHub：作为开源代码库以及版本控制系统，同时GitHub可以托管各种git。
+
+Hexo是一个开源的静态博客生成器,同时它需要我们手">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="码农小晗晗" title="码农小晗晗"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="码农小晗晗">码农小晗晗</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/11/Hexo博客的搭建/" title="如何搭建一个HEXO" itemprop="url">如何搭建一个HEXO</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="解晗">解晗</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-05-11T06:48:16.000Z" itemprop="datePublished">2016-05-11</time>
+    更新日期:<time datetime="2016-05-14T09:02:53.000Z" itemprop="dateModified">2016-05-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#名词解释："><span class="toc-number">1.</span> <span class="toc-text">名词解释：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下采用（mac系统为例）"><span class="toc-number"></span> <span class="toc-text">以下采用（mac系统为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、安装NodeJs终端"><span class="toc-number">1.</span> <span class="toc-text">一、安装NodeJs终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、安装Git"><span class="toc-number">2.</span> <span class="toc-text">二、安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、安装hexo"><span class="toc-number">3.</span> <span class="toc-text">三、安装hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#以上三步安装成功后，可以在终端对博客进行基本设置了。"><span class="toc-number">4.</span> <span class="toc-text">以上三步安装成功后，可以在终端对博客进行基本设置了。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这里又来播放福利啦！！！"><span class="toc-number">5.</span> <span class="toc-text">这里又来播放福利啦！！！</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我使用的是Mou"><span class="toc-number">6.</span> <span class="toc-text">我使用的是Mou</span></a></li></ol>
+		</div>
+		
+		<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li><p>Node：Node是一个服务器端 JavaScript 解释器。它本身运行Google  V8 JavaScript引擎，所以速度和性能非常好。 </p>
+</li>
+<li><p>GitHub：作为开源代码库以及版本控制系统，同时GitHub可以托管各种git。</p>
+</li>
+<li><p>Hexo是一个开源的静态博客生成器,同时它需要我们手动进行搭建。</p>
+</li>
+</ul>
+<hr>
+<h3 id="以下采用（mac系统为例）"><a href="#以下采用（mac系统为例）" class="headerlink" title="以下采用（mac系统为例）"></a>以下采用（mac系统为例）</h3><h4 id="一、安装NodeJs终端"><a href="#一、安装NodeJs终端" class="headerlink" title="一、安装NodeJs终端"></a>一、安装NodeJs终端</h4><ul>
+<li>在nodeJs官网下载它的终端，网址：<a href="https://nodejs.org/en/" target="_blank" rel="external"> https://nodejs.org/en/</a></li>
+<li>建议选择稳定版本下载。</li>
+<li>下载安装完毕以后，在终端输入node -v即可确认nodeJs是否安装成功， 同时会出现它的版本号。</li>
+</ul>
+<p>   <img src="http://i3.buimg.com/43f3778545659094.png" alt=""></p>
+<h4 id="二、安装Git"><a href="#二、安装Git" class="headerlink" title="二、安装Git"></a>二、安装Git</h4><ul>
+<li>安装过Xcode可以直接跳过这步，因为Xcode自带Git。</li>
+<li>如果没有，那么Mac和Windows都可以直接到官网下载安装。</li>
+</ul>
+<h4 id="三、安装hexo"><a href="#三、安装hexo" class="headerlink" title="三、安装hexo"></a>三、安装hexo</h4><ul>
+<li>在终端界面下，输入npm install hexo 如果权限不对操作失败请提升权限。</li>
+<li>同样的，在终端页面输入hexo-v，出现它的版本号，或者输入hexo出现很多内容，也可以证明安装成功。</li>
+</ul>
+<hr>
+<h4 id="以上三步安装成功后，可以在终端对博客进行基本设置了。"><a href="#以上三步安装成功后，可以在终端对博客进行基本设置了。" class="headerlink" title="以上三步安装成功后，可以在终端对博客进行基本设置了。"></a>以上三步安装成功后，可以在终端对博客进行基本设置了。</h4><ol>
+<li>mkdir blog:（关于文件名称可以任意起名字），即可创建一个文件夹，随后桌面会显示该文件夹。</li>
+<li>hexo init:接下来就是等待的时间了，你会发现会出现自动生成了很多文件，这是在初始化博客目录。</li>
+<li><p>hexo new title：创建新博客，可以给新博客起一个名字。创建成功后，如图所示，会在新创建的博客文件夹中source_posts的路径下面显示。</p>
+<p> <img src="http://i3.buimg.com/711285a602b65db9.png" alt=""></p>
+</li>
+<li>用Mou编辑完，就可以完成并发布了。</li>
+<li>hexo server，启动本地服务器业务，然后再浏览器地址栏输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>这样就可以预览你写的博客了。</li>
+</ol>
+<hr>
+<h4 id="这里又来播放福利啦！！！"><a href="#这里又来播放福利啦！！！" class="headerlink" title="这里又来播放福利啦！！！"></a>这里又来播放福利啦！！！</h4><p>对于写博客，我们也需要一双发现美的眼睛，所以嘛，文本编辑器不可获缺，用它进行我们博客文本的编辑，就是一种完美地体验，perfect！！！安利几款业界比较受欢迎的Markdown编辑器，喜欢用Markdown的就拿走吧<a href="http://www.csdn.net/article/2014-05-05/2819623" target="_blank" rel="external">http://www.csdn.net/article/2014-05-05/2819623</a></p>
+<hr>
+<h4 id="我使用的是Mou"><a href="#我使用的是Mou" class="headerlink" title="我使用的是Mou"></a>我使用的是Mou</h4><p>我目前使用的文本编辑器是Mou。Mou 是 Mac下杰出的 Markdown 编辑器，提供语法高亮、在线预览、同步滚动、全屏模式，支持自定保存、自动匹配，允许自定义主题，支持 CSS，HTML 和 PDF 导出等。 </p>
+<hr>
+<p>以上只是个人观点，如果您在阅读的过程中发现问题与错误，热烈欢迎提出来，我会及时改正的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/如何搭建一个Hexo/">如何搭建一个Hexo</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/05/11/Hexo博客的搭建/" data-title="如何搭建一个HEXO | 码农小晗晗" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/05/11/我的第二篇博客/" title="我的第二篇博客">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  我的第二篇博客</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#名词解释："><span class="toc-number">1.</span> <span class="toc-text">名词解释：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下采用（mac系统为例）"><span class="toc-number"></span> <span class="toc-text">以下采用（mac系统为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、安装NodeJs终端"><span class="toc-number">1.</span> <span class="toc-text">一、安装NodeJs终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、安装Git"><span class="toc-number">2.</span> <span class="toc-text">二、安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、安装hexo"><span class="toc-number">3.</span> <span class="toc-text">三、安装hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#以上三步安装成功后，可以在终端对博客进行基本设置了。"><span class="toc-number">4.</span> <span class="toc-text">以上三步安装成功后，可以在终端对博客进行基本设置了。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这里又来播放福利啦！！！"><span class="toc-number">5.</span> <span class="toc-text">这里又来播放福利啦！！！</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我使用的是Mou"><span class="toc-number">6.</span> <span class="toc-text">我使用的是Mou</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/如何搭建一个Hexo/" title="如何搭建一个Hexo">如何搭建一个Hexo<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="https://crackerme.github.io“ target="_blank">孙平的博客</a></li>
+      <li><a href="https://wuxiao1021.github.io“ target="_blank">吴肖的博客</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="解晗">解晗</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  </body>
+</html>
