@@ -276,85 +276,12 @@
 
       
         
-          
-            <h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
-<li><strong>前端自动化工具</strong> :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我们的工作效率。</li>
-<li><strong>Node</strong> :Node是一个服务器端 JavaScript 解释器。</li>
-<li><strong>Gulp</strong> :gulp是基于Nodejs的自动任务运行器,它能自动化地完成JS/CSS/HTML/IMAGE等文件的测试，检查，合并，压缩。</li>
-<li><strong>NPM</strong> :是随着nodejs一起安装的包的管理工具，在开发nodejs应用中，我们以来许许多多的第三方模块来提高效率，而这些第三方模块，是需要npm来辅助进行安装所需的package。</li>
-</ul>
-<hr>
-<h3 id="第一步：安装Node"><a href="#第一步：安装Node" class="headerlink" title="第一步：安装Node"></a>第一步：安装Node</h3><ol>
-<li>搭建Node环境，访问<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
-<li>下载完成后直接运行程序，npm会随着安装包一起安装，npm很有用。</li>
-</ol>
-<h3 id="第二步：使用命令行"><a href="#第二步：使用命令行" class="headerlink" title="第二步：使用命令行"></a>第二步：使用命令行</h3><ol>
-<li>命令行：OSX中的终端（Terminal），windows中的命令提示符（Command Prompt），常见的终端命令行有很多，可以搜索一下哦<a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a></li>
-<li>确认Node是否安装成功，请执行以下命令。<br> <code>node -v</code>输入此代码回车，会看到安装的版本号。<br> <code>npm -v</code>输入代码回车，会看到npm的版本号。<br> 如果以上没有显示，说明安装未成功。</li>
-</ol>
-<h3 id="第三步：安装gulp"><a href="#第三步：安装gulp" class="headerlink" title="第三步：安装gulp"></a>第三步：安装gulp</h3><pre><code>sudo npm install -g gulp输入此代码回车
-</code></pre><ul>
-<li>sudo是以管理员身份执行命令，一般要求输入电脑密码</li>
-<li>npm是安装node模块的工具，执行install命令</li>
-<li>-g表示在全局环境下安装，一边任何项目都能使用它。</li>
-<li><p>gulp是将要安装的node模块的名字。</p>
-<pre><code>gulp -v 代码用来检测gulp是否安装成功。
-npm install --save-dev gulp将gulp安装到项目本地。
-</code></pre><p>  这里使用–save-dev来更新package.json文件，更新devDependencies值，当其他模块需要依赖当前模块的时候，通过     <code>npm install</code> 自动下载安装dependencies。</p>
-</li>
-</ul>
-<h3 id="第四部：新建Gulpfile文件，运行gulp"><a href="#第四部：新建Gulpfile文件，运行gulp" class="headerlink" title="第四部：新建Gulpfile文件，运行gulp"></a>第四部：新建Gulpfile文件，运行gulp</h3><h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-jshint</span><br><span class="line"> 			gulp-sass</span><br><span class="line"> 			gulp-concat </span><br><span class="line"> 			gulp-uglify </span><br><span class="line"> 			gulp-rename</span><br><span class="line"> 	 --save-dev </span><br><span class="line"> /*如果以上命令运行失败，需要添加sudo再次尝试。*/</span><br></pre></td></tr></table></figure>
-<h4 id="新建gulpfile文件"><a href="#新建gulpfile文件" class="headerlink" title="新建gulpfile文件"></a>新建gulpfile文件</h4><p>现在，组件安装完毕，我们需要新建gulpfile文件以指定gulp需要为我们完成什么任务。</p>
-<p>gulp有5个方法<code>task</code> <code>run</code> <code>watch</code> <code>src</code> <code>test</code> 在项目根目录新建一个js文件并命名为 gulpfile.js ，把下面的代码粘贴进去,*代表所有文件：</p>
-<pre><code> var gulp = require(&quot;gulp&quot;)/*引入gulp*/
-
- var jshint = require(&quot;gulp-jshint&quot;);
- var sass = require (&quot;glup-sass&quot;);
- var concat = require(&quot;gulp-concat&quot;);
- var uglify = require(&quot;gulp-uglify&quot;);
- var rename = require(&quot;gulp-rename&quot;);/*以上为引入组件，分开创建lint，sass，scripts，default四个不通的任务*/
-
- gulp.task(&quot;lint&quot;,function(){
-     gulp.src(&quot;./js/*.js&quot;)
-     .pipe(jshint())
-     .pipe(jshint.reporter(&quot;default&quot;));
-     }) /*检查脚本有没有报错或者警告*/         
-
-gulp.task(&quot;sass&quot;,function(){
-    gulp.src(&quot;./.scss/*scss&quot;);
-    .pipe(sass())
-    .pipe(gulp.dest(&quot;./css&quot;))
-}) /*sass任务会编译scss/目录下的scss文件，并把编译完成的css文件保存到css目录中*/    
-gulp.task(“script”,function（）{
-    gulp.src(&quot;./js/*.js&quot;)
-    .pipe(concat(&quot;all.js&quot;))
-    .pipe(gulp.dest(&quot;./dist&quot;))
-    .pipe(rename(&quot;all.min.js&quot;))
-    .pipe(uglify())
-    .pipe(gulp.dest(&quot;./dist&quot;))
-})/*合并压缩文件*/
-
-gulp.task(&quot;default&quot;,function(){
-    gulp.run(&quot;lint&quot;,&quot;sass&quot;,&quot;script&quot;)
-})/*默认任务*/
-
-
-gulp.watch(&quot;./js/*.js&quot;,function(){
-    gulp.run(&apos;lint&apos;, &apos;sass&apos;, &apos;scripts&apos;)
-})/*监听文件变化*/    
-</code></pre><h3 id="现在都完成了，让我们回到终端运行一下吧。"><a href="#现在都完成了，让我们回到终端运行一下吧。" class="headerlink" title="现在都完成了，让我们回到终端运行一下吧。"></a>现在都完成了，让我们回到终端运行一下吧。</h3><ul>
-<li>直接运行gulp任务</li>
-</ul>
-<pre><code class="bash">gulp
-</code></pre>
-<ul>
-<li>运行gulpfile.js中定义的任意任务，比如，现在运行sass任务：</li>
-</ul>
-<pre><code class="bash">gulp sass
-</code></pre>
-<hr>
-<h3 id="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><a href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦" class="headerlink" title="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!"></a>重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</h3>
-          
+          <h4 id="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><a href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦" class="headerlink" title="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!"></a>重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</h4>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/11/Gulp基本操作/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
         
       
     </div>
