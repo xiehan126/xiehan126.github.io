@@ -1,92 +1,286 @@
+<!doctype html>
 
- <!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+
+
   
-    <title>Gulp基本操作 | 码农小晗晗</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <meta name="author" content="解晗">
     
-    <meta name="description" content="名词解释：
-前端自动化工具 :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
     
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gulp基本操作," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://html5cn.org/static/image/common/bbs.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="名词解释：
+前端自动化工具 :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我们的工作效率。
+Node :Node是一个服务器端 JavaScript 解释器。
+Gulp :gu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp基本操作">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/Gulp基本操作/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="名词解释：
+前端自动化工具 :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我们的工作效率。
+Node :Node是一个服务器端 JavaScript 解释器。
+Gulp :gu">
+<meta property="og:updated_time" content="2016-05-16T14:23:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp基本操作">
+<meta name="twitter:description" content="名词解释：
+前端自动化工具 :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我们的工作效率。
+Node :Node是一个服务器端 JavaScript 解释器。
+Gulp :gu">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Gulp基本操作 | 码农小晗晗 </title>
 </head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="码农小晗晗" title="码农小晗晗"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="码农小晗晗">码农小晗晗</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
     </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <a href="/2016/05/11/Gulp基本操作/" title="Gulp基本操作" itemprop="url">Gulp基本操作</a>
-  </h1>
-  <p class="article-author">By
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <a href="http://yoursite.com" title="解晗">解晗</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2016-05-11T07:15:27.000Z" itemprop="datePublished">2016-05-11</time>
-    更新日期:<time datetime="2016-05-16T13:32:57.000Z" itemprop="dateModified">2016-05-16</time>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gulp基本操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-05-11T15:15:27+08:00" content="2016-05-11">
+              2016-05-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
     
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#名词解释："><span class="toc-number">1.</span> <span class="toc-text">名词解释：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：安装Node"><span class="toc-number"></span> <span class="toc-text">第一步：安装Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：使用命令行"><span class="toc-number"></span> <span class="toc-text">第二步：使用命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步：安装gulp"><span class="toc-number"></span> <span class="toc-text">第三步：安装gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四部：新建Gulpfile文件，运行gulp"><span class="toc-number"></span> <span class="toc-text">第四部：新建Gulpfile文件，运行gulp</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装依赖"><span class="toc-number">0.1.</span> <span class="toc-text">安装依赖</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建gulpfile文件"><span class="toc-number">1.</span> <span class="toc-text">新建gulpfile文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现在都完成了，让我们回到终端运行一下吧。"><span class="toc-number"></span> <span class="toc-text">现在都完成了，让我们回到终端运行一下吧。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><span class="toc-number"></span> <span class="toc-text">重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</span></a>
-		</div>
-		
-		<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
 <li><strong>前端自动化工具</strong> :目前比较受欢迎的当属Gulp和Grunt了。那么它们的作用是什么呢？在前端开发中，项目上线前，通常会利用前端自动化工具做如下工作。比如：文件目录调整，HTML注释、换行等操作，CSS压缩合并，JS/CSS语法检测，JS代码压缩，图片压缩等等，通过利用工具，极好地提高了我们的工作效率。</li>
 <li><strong>Node</strong> :Node是一个服务器端 JavaScript 解释器。</li>
 <li><strong>Gulp</strong> :gulp是基于Nodejs的自动任务运行器,它能自动化地完成JS/CSS/HTML/IMAGE等文件的测试，检查，合并，压缩。</li>
@@ -101,40 +295,39 @@
 <li>命令行：OSX中的终端（Terminal），windows中的命令提示符（Command Prompt），常见的终端命令行有很多，可以搜索一下哦<a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a></li>
 <li>确认Node是否安装成功，请执行以下命令。<br> <code>node -v</code>输入此代码回车，会看到安装的版本号。<br> <code>npm -v</code>输入代码回车，会看到npm的版本号。<br> 如果以上没有显示，说明安装未成功。</li>
 </ol>
-<h3 id="第三步：安装gulp"><a href="#第三步：安装gulp" class="headerlink" title="第三步：安装gulp"></a>第三步：安装gulp</h3><pre><code>`sudo npm install -g gulp`输入此代码回车
+<h3 id="第三步：安装gulp"><a href="#第三步：安装gulp" class="headerlink" title="第三步：安装gulp"></a>第三步：安装gulp</h3><pre><code>sudo npm install -g gulp输入此代码回车
 </code></pre><ul>
 <li>sudo是以管理员身份执行命令，一般要求输入电脑密码</li>
 <li>npm是安装node模块的工具，执行install命令</li>
 <li>-g表示在全局环境下安装，一边任何项目都能使用它。</li>
 <li><p>gulp是将要安装的node模块的名字。</p>
-<p>  <code>gulp -v</code> 代码用来检测gulp是否安装成功。<br>  <code>npm install --save-dev gulp</code>将gulp安装到项目本地。</p>
-<p>  这里使用–save-dev来更新package.json文件，更新devDependencies值，当其他模块需要依赖当前模块的时候，通过<code>npm install</code>自动下载安装dependencies。</p>
+<pre><code>gulp -v 代码用来检测gulp是否安装成功。
+npm install --save-dev gulp将gulp安装到项目本地。
+</code></pre><p>  这里使用–save-dev来更新package.json文件，更新devDependencies值，当其他模块需要依赖当前模块的时候，通过     <code>npm install</code> 自动下载安装dependencies。</p>
 </li>
 </ul>
-<h3 id="第四部：新建Gulpfile文件，运行gulp"><a href="#第四部：新建Gulpfile文件，运行gulp" class="headerlink" title="第四部：新建Gulpfile文件，运行gulp"></a>第四部：新建Gulpfile文件，运行gulp</h3><h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><p><code>npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev</code>如果以上命令运行失败，需要添加sudo再次尝试。</p>
+<h3 id="第四部：新建Gulpfile文件，运行gulp"><a href="#第四部：新建Gulpfile文件，运行gulp" class="headerlink" title="第四部：新建Gulpfile文件，运行gulp"></a>第四部：新建Gulpfile文件，运行gulp</h3><h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-jshint</span><br><span class="line"> 			gulp-sass</span><br><span class="line"> 			gulp-concat </span><br><span class="line"> 			gulp-uglify </span><br><span class="line"> 			gulp-rename</span><br><span class="line"> 	 --save-dev </span><br><span class="line"> /*如果以上命令运行失败，需要添加sudo再次尝试。*/</span><br></pre></td></tr></table></figure>
 <h4 id="新建gulpfile文件"><a href="#新建gulpfile文件" class="headerlink" title="新建gulpfile文件"></a>新建gulpfile文件</h4><p>现在，组件安装完毕，我们需要新建gulpfile文件以指定gulp需要为我们完成什么任务。</p>
 <p>gulp有5个方法<code>task</code> <code>run</code> <code>watch</code> <code>src</code> <code>test</code> 在项目根目录新建一个js文件并命名为 gulpfile.js ，把下面的代码粘贴进去,*代表所有文件：</p>
-<pre><code> var gulp = require(&quot;gulp&quot;)//**引入gulp**
+<pre><code> var gulp = require(&quot;gulp&quot;)/*引入gulp*/
 
  var jshint = require(&quot;gulp-jshint&quot;);
  var sass = require (&quot;glup-sass&quot;);
  var concat = require(&quot;gulp-concat&quot;);
  var uglify = require(&quot;gulp-uglify&quot;);
- var rename = require(&quot;gulp-rename&quot;);//**以上为引入组件，分开创建lint，sass，scripts，default四个不通的任务**
+ var rename = require(&quot;gulp-rename&quot;);/*以上为引入组件，分开创建lint，sass，scripts，default四个不通的任务*/
 
  gulp.task(&quot;lint&quot;,function(){
      gulp.src(&quot;./js/*.js&quot;)
      .pipe(jshint())
      .pipe(jshint.reporter(&quot;default&quot;));
-     })//**检查脚本有没有报错或者警告**
-
+     }) /*检查脚本有没有报错或者警告*/         
 
 gulp.task(&quot;sass&quot;,function(){
     gulp.src(&quot;./.scss/*scss&quot;);
     .pipe(sass())
     .pipe(gulp.dest(&quot;./css&quot;))
-})//**sass任务会编译scss/目录下的scss文件，并把编译完成的css文件保存到css目录中**
-
+}) /*sass任务会编译scss/目录下的scss文件，并把编译完成的css文件保存到css目录中*/    
 gulp.task(“script”,function（）{
     gulp.src(&quot;./js/*.js&quot;)
     .pipe(concat(&quot;all.js&quot;))
@@ -142,15 +335,16 @@ gulp.task(“script”,function（）{
     .pipe(rename(&quot;all.min.js&quot;))
     .pipe(uglify())
     .pipe(gulp.dest(&quot;./dist&quot;))
-})//**合并压缩文件**
+})/*合并压缩文件*/
 
 gulp.task(&quot;default&quot;,function(){
     gulp.run(&quot;lint&quot;,&quot;sass&quot;,&quot;script&quot;)
-})//**默认任务**
+})/*默认任务*/
+
 
 gulp.watch(&quot;./js/*.js&quot;,function(){
     gulp.run(&apos;lint&apos;, &apos;sass&apos;, &apos;scripts&apos;)
-})//**监听文件变化
+})/*监听文件变化*/    
 </code></pre><h3 id="现在都完成了，让我们回到终端运行一下吧。"><a href="#现在都完成了，让我们回到终端运行一下吧。" class="headerlink" title="现在都完成了，让我们回到终端运行一下吧。"></a>现在都完成了，让我们回到终端运行一下吧。</h3><ul>
 <li>直接运行gulp任务</li>
 </ul>
@@ -162,252 +356,283 @@ gulp.watch(&quot;./js/*.js&quot;,function(){
 <pre><code class="bash">gulp sass
 </code></pre>
 <hr>
-<h3 id="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><a href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦" class="headerlink" title="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!"></a>重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</h3>  
-	</div>
-		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Gulp基本操作/">Gulp基本操作</a>
-  </div>
-
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://yoursite.com/2016/05/11/Gulp基本操作/" data-title="Gulp基本操作 | 码农小晗晗" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
-
-<div class="next">
-<a href="/2016/05/11/我的第二篇博客/"  title="我的第二篇博客">
- <strong>NEXT:</strong><br/> 
- <span>我的第二篇博客
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#名词解释："><span class="toc-number">1.</span> <span class="toc-text">名词解释：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：安装Node"><span class="toc-number"></span> <span class="toc-text">第一步：安装Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：使用命令行"><span class="toc-number"></span> <span class="toc-text">第二步：使用命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步：安装gulp"><span class="toc-number"></span> <span class="toc-text">第三步：安装gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四部：新建Gulpfile文件，运行gulp"><span class="toc-number"></span> <span class="toc-text">第四部：新建Gulpfile文件，运行gulp</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装依赖"><span class="toc-number">0.1.</span> <span class="toc-text">安装依赖</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建gulpfile文件"><span class="toc-number">1.</span> <span class="toc-text">新建gulpfile文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现在都完成了，让我们回到终端运行一下吧。"><span class="toc-number"></span> <span class="toc-text">现在都完成了，让我们回到终端运行一下吧。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><span class="toc-number"></span> <span class="toc-text">重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</span></a>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/Gulp基本操作/" title="Gulp基本操作">Gulp基本操作<sup>1</sup></a></li>
-		
-			<li><a href="/tags/如何搭建一个Hexo/" title="如何搭建一个Hexo">如何搭建一个Hexo<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="https://changxinle.github.io">常新乐的</a></li>
-      <li><a href="https://wuxiao1021.github.io">吴肖的</a></li>
-      <li><a href="https://crackerme.github.io/">孙平的</a></li>
-    </ul>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	
-	<div class="social-font clearfix">
-		
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
-		
-		<a href="http://yoursite.com" target="_blank" title="解晗">解晗</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+<h3 id="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><a href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦" class="headerlink" title="重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!"></a>重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</h3>
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+
+    <div>
+      
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gulp基本操作/" rel="tag">#Gulp基本操作</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/我的第二篇博客/" rel="next" title="我的第二篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第二篇博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">1.</span> <span class="nav-text">名词解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：安装Node"><span class="nav-number"></span> <span class="nav-text">第一步：安装Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：使用命令行"><span class="nav-number"></span> <span class="nav-text">第二步：使用命令行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：安装gulp"><span class="nav-number"></span> <span class="nav-text">第三步：安装gulp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四部：新建Gulpfile文件，运行gulp"><span class="nav-number"></span> <span class="nav-text">第四部：新建Gulpfile文件，运行gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装依赖"><span class="nav-number">0.1.</span> <span class="nav-text">安装依赖</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建gulpfile文件"><span class="nav-number">1.</span> <span class="nav-text">新建gulpfile文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现在都完成了，让我们回到终端运行一下吧。"><span class="nav-number"></span> <span class="nav-text">现在都完成了，让我们回到终端运行一下吧。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦"><span class="nav-number"></span> <span class="nav-text">重要的事情说三遍，熟练操作gulp，可以大大地提高前端的工作效率哦!!!</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-}); 
 </script>
 
 
 
-  </body>
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
 </html>
