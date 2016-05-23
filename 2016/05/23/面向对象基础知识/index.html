@@ -1,0 +1,629 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面向对象基础知识," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://html5cn.org/static/image/common/bbs.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象基础知识">
+<meta property="og:url" content="http://yoursite.com/2016/05/23/面向对象基础知识/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。">
+<meta property="og:image" content="http://i4.buimg.com/23911c5af9cd1bbc.png">
+<meta property="og:image" content="http://i2.buimg.com/adf1aa6cb10a0c4a.png">
+<meta property="og:updated_time" content="2016-05-23T13:21:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象基础知识">
+<meta name="twitter:description" content="面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。">
+<meta name="twitter:image" content="http://i4.buimg.com/23911c5af9cd1bbc.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 面向对象基础知识 | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面向对象基础知识
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-05-23T19:19:02+08:00" content="2016-05-23">
+              2016-05-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。"><a href="#面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。" class="headerlink" title="面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。"></a>面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。</h4><p><img src="http://i4.buimg.com/23911c5af9cd1bbc.png" alt=""><br><a id="more"></a></p>
+<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li>面向对象：使用对象时，只关注对象提供的功能，不用在意其内部细节。它是一种通用思想一种思路，并非只在编程中使用，任何事情都可以采用。举个例子：我们在使用收音机的时候，只需知道那个钮可以操作什么功能就好，不关心它的工作原理。</li>
+<li>oop：Object Oriented Programming 面向对象的程序设计。</li>
+<li>this：指的是当前的方法属于谁。</li>
+</ul>
+<hr>
+<h4 id="面向对象的思维导图："><a href="#面向对象的思维导图：" class="headerlink" title="面向对象的思维导图："></a>面向对象的思维导图：</h4><p><img src="http://i2.buimg.com/adf1aa6cb10a0c4a.png" alt=""></p>
+<hr>
+<h4 id="js中的面向对象："><a href="#js中的面向对象：" class="headerlink" title="js中的面向对象："></a>js中的面向对象：</h4><h6 id="面相对象（oop）特点："><a href="#面相对象（oop）特点：" class="headerlink" title="面相对象（oop）特点："></a>面相对象（oop）特点：</h6><p>1 抽象：抓住核心问题，从整体抽出来一个用来构造对象。例如我们在填写用户信息的时候，会写到姓名，性别以及年龄等等，这都是可以用来收集用户信息的。<br>2.封装：不考虑内部实现，只考虑功能上的使用。<br>3.继承性：从已有的对象中，继承出新的对象。</p>
+<h6 id="对象的组成："><a href="#对象的组成：" class="headerlink" title="对象的组成："></a>对象的组成：</h6><ol>
+<li>方法即函数</li>
+<li>属性即变量</li>
+</ol>
+<h4 id="js中的普通对象与函数对象："><a href="#js中的普通对象与函数对象：" class="headerlink" title="js中的普通对象与函数对象："></a>js中的普通对象与函数对象：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;&#125;;</span><br><span class="line">var f2 = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br><span class="line">var f3 = new Function(<span class="string">'str'</span>,<span class="string">'console.log(str)'</span>);</span><br><span class="line">var o3 = new f1();</span><br><span class="line">var o1 = &#123;&#125;;</span><br><span class="line">var o2 =new Object();</span><br><span class="line">console.log(typeof Object); //<span class="keyword">function</span></span><br><span class="line">console.log(typeof Function); //<span class="keyword">function</span></span><br><span class="line">console.log(typeof o1); //object</span><br><span class="line">console.log(typeof o2); //object</span><br><span class="line">console.log(typeof o3); //object</span><br><span class="line">console.log(typeof f1); //<span class="keyword">function</span></span><br><span class="line">console.log(typeof f2); //<span class="keyword">function</span></span><br><span class="line">console.log(typeof f3); //<span class="keyword">function</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：在上面的例子中 o1 o2 o3 为普通对象，f1 f2 f3 为函数对象。怎么区分，其实很简单，<strong> 凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。</strong> f1,f2,归根结底都是通过 new Function()的方式进行创建的。Function Object 也都是通过 New Function()创建的。</li>
+</ul>
+<hr>
+<h4 id="原型对象："><a href="#原型对象：" class="headerlink" title="原型对象："></a>原型对象：</h4><ul>
+<li><p>在JavaScript 中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性。其中函数对象的一个属性就是原型对象 prototype。注：普通对象没有prototype,但有<strong>proto</strong>属性。</p>
+</li>
+<li><p>原型对象其实就是普通对象（Function.prototype除外,它是函数对象，但它很特殊，他没有prototype属性（前面说道函数对象都有prototype属性））。看下面的例子：</p>
+</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;&#125;;</span><br><span class="line">console.log(f1.prototype) //f1&#123;&#125;</span><br><span class="line">console.log(typeof f1. prototype) //Object</span><br><span class="line">console.log(typeof Function.prototype) // Function，这个特殊</span><br><span class="line">console.log(typeof Object.prototype) // Object</span><br><span class="line">console.log(typeof Function.prototype.prototype) //undefined</span><br></pre></td></tr></table></figure>
+<h4 id="原型prototype："><a href="#原型prototype：" class="headerlink" title="原型prototype："></a>原型prototype：</h4><ul>
+<li>原型的应用：可以扩展系统对象，添加一些本部支持的方法和属性。</li>
+<li>原型的原理：与css中的.class类一样，给一类的元素添加方法和属性。</li>
+</ul>
+<h4 id="原型prototype应用："><a href="#原型prototype应用：" class="headerlink" title="原型prototype应用："></a>原型prototype应用：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr1=[1,2,3];</span><br><span class="line">var arr2=[2,3,4];</span><br><span class="line">	Array.prototype.sum=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		var result=0;</span><br><span class="line">		var i=0;</span><br><span class="line">		<span class="keyword">for</span> (var i = 0; i &lt; this.length; i++) &#123;</span><br><span class="line">			result+=this[i];</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="built_in">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">	alert(arr1.sum());</span><br><span class="line">	alert(arr2.sum());</span><br></pre></td></tr></table></figure>
+<h5 id="分析-："><a href="#分析-：" class="headerlink" title="(分析)："></a>(分析)：</h5><ol>
+<li>这是分别求两个数组相加的和.</li>
+<li>对于arr1和arr2重复使用的代码，给他们创建了一个函数，并且把他们包起来，哪里需要，哪里就调用。</li>
+<li>最后如果不使用return，则外面用不到这个对象，即return是返回函数控制结果。</li>
+<li>prototype是给两个相同的数组添加一个方法。</li>
+</ol>
+<hr>
+<h5 id="小结-："><a href="#小结-：" class="headerlink" title="(小结)："></a>(小结)：</h5><ul>
+<li>构造函数时候，首字母要大写；</li>
+<li>构造函数里：属性（每个对象各不相同），不同的东西就加在这里。</li>
+<li>原型prototype：方法（所有对象都一样），相同的东西加在这里。</li>
+</ul>
+<h4 id="js中的this机制："><a href="#js中的this机制：" class="headerlink" title="js中的this机制："></a>js中的this机制：</h4><ul>
+<li>默认绑定全局变量：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">    console.log( this.a );</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">fn(); // 2 -- fn单独调用，this引用window</span><br></pre></td></tr></table></figure>
+<ul>
+<li>隐式绑定（隐式调用的意思是，函数调用时拥有一个上下文对象，就好像这个函数是属于该对象的一样）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">    console.log( this.a );</span><br><span class="line">&#125;</span><br><span class="line">var obj2 = &#123;</span><br><span class="line">    a: 42,</span><br><span class="line">    fn: fn</span><br><span class="line">&#125;;</span><br><span class="line">var obj1 = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    obj2: obj2</span><br><span class="line">&#125;;</span><br><span class="line">obj1.obj2.fn(); // 42 -- this引用的是obj2.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="失去隐式绑定的情况下："><a href="#失去隐式绑定的情况下：" class="headerlink" title="失去隐式绑定的情况下："></a>失去隐式绑定的情况下：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">    console.log( this.a );</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    fn: fn</span><br><span class="line">&#125;;</span><br><span class="line">var bar = obj.fn; // 函数引用传递</span><br><span class="line">var a = <span class="string">"全局"</span>; // 定义全局变量</span><br><span class="line">bar(); // <span class="string">"全局"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示绑定：（它接受第一个参数即是上下午问对象，并将其赋给this）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">    console.log( this.a );</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2</span><br><span class="line">&#125;;</span><br><span class="line">fn.call( obj ); // 2</span><br></pre></td></tr></table></figure>
+<h6 id="如果传递为null，结果就是绑定默认全局变量。"><a href="#如果传递为null，结果就是绑定默认全局变量。" class="headerlink" title="如果传递为null，结果就是绑定默认全局变量。"></a>如果传递为null，结果就是绑定默认全局变量。</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>() &#123;</span><br><span class="line">     console.log( this.a );</span><br><span class="line"> &#125;</span><br><span class="line"> var obj = &#123;</span><br><span class="line">     a: 2</span><br><span class="line"> &#125;;</span><br><span class="line">var a = 10;</span><br><span class="line">fn.call( null); // 10</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new新对象绑定(如果是构造函数，用new来调用，绑定的将是新创建的对象)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fn(a) &#123;</span><br><span class="line">    this.a = a;</span><br><span class="line">&#125;</span><br><span class="line">var bar = new fn( 2 );</span><br><span class="line">console.log( bar.a );// 2</span><br></pre></td></tr></table></figure>
+<h4 id="！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。"><a href="#！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。" class="headerlink" title="！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。"></a>！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。</h4>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象基础知识/" rel="tag">#面向对象基础知识</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/18/玩转Bootstrap(基础)/" rel="next" title="玩转Bootstrap（基础）">
+                <i class="fa fa-chevron-left"></i> 玩转Bootstrap（基础）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://changxinle.github.io" title="常新乐" target="_blank">常新乐</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wuxiao1021.github.io" title="吴肖" target="_blank">吴肖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://crackerme.github.io" title="孙平" target="_blank">孙平</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。"><span class="nav-number">1.</span> <span class="nav-text">面向对象：不要被这个名字吓到啊，它不是一门技术，只是一种通用思想而已。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">2.</span> <span class="nav-text">名词解释：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的思维导图："><span class="nav-number">3.</span> <span class="nav-text">面向对象的思维导图：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js中的面向对象："><span class="nav-number">4.</span> <span class="nav-text">js中的面向对象：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#面相对象（oop）特点："><span class="nav-number">4.0.1.</span> <span class="nav-text">面相对象（oop）特点：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对象的组成："><span class="nav-number">4.0.2.</span> <span class="nav-text">对象的组成：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js中的普通对象与函数对象："><span class="nav-number">5.</span> <span class="nav-text">js中的普通对象与函数对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型对象："><span class="nav-number">6.</span> <span class="nav-text">原型对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型prototype："><span class="nav-number">7.</span> <span class="nav-text">原型prototype：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型prototype应用："><span class="nav-number">8.</span> <span class="nav-text">原型prototype应用：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分析-："><span class="nav-number">8.1.</span> <span class="nav-text">(分析)：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小结-："><span class="nav-number">8.2.</span> <span class="nav-text">(小结)：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js中的this机制："><span class="nav-number">9.</span> <span class="nav-text">js中的this机制：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#失去隐式绑定的情况下："><span class="nav-number">9.0.1.</span> <span class="nav-text">失去隐式绑定的情况下：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#如果传递为null，结果就是绑定默认全局变量。"><span class="nav-number">9.0.2.</span> <span class="nav-text">如果传递为null，结果就是绑定默认全局变量。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。"><span class="nav-number">10.</span> <span class="nav-text">！！！学会面向对象思想还是蛮有意思的，因为用这种思想敲代码，虽然思维比较跳跃，但是易用性较强，代码利于后期更新与维护，很多游戏公司都会使用这种思想去编程游戏。</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
