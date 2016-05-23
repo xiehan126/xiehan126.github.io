@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="http://html5cn.org/static/image/common/bbs.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -106,8 +106,8 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -138,11 +138,11 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta custom-logo">
+      <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
@@ -173,9 +173,23 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-            Startseite
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
           </a>
         </li>
       
@@ -183,9 +197,15 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
             
-            Archiv
+            About
           </a>
         </li>
       
@@ -238,7 +258,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-05-11T15:05:12+08:00" content="2016-05-11">
               2016-05-11
             </time>
@@ -248,6 +268,15 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/11/前端模板引擎jade介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/11/前端模板引擎jade介绍/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
           
 
           
@@ -315,6 +344,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://i4.buimg.com/36a972514cfa5a14.jpg" alt="解晗 wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
       
     </div>
 
@@ -374,6 +408,10 @@
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/05/11/前端模板引擎jade介绍/"
+           data-title="前端模板引擎jade介绍" data-url="http://yoursite.com/2016/05/11/前端模板引擎jade介绍/">
+      </div>
+    
   </div>
 
 
@@ -397,10 +435,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -408,7 +446,7 @@
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="解晗" />
           <p class="site-author-name" itemprop="name">解晗</p>
           <p class="site-description motion-element" itemprop="description">web前端的学习</p>
@@ -417,7 +455,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">5</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -425,10 +463,10 @@
 
           
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
-              
+                <span class="site-state-item-name">tags</span>
+              </a>
             </div>
           
 
@@ -444,28 +482,6 @@
         
 
         
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://changxinle.github.io" title="常新乐" target="_blank">常新乐</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://wuxiao1021.github.io" title="吴肖" target="_blank">吴肖</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://crackerme.github.io" title="孙平" target="_blank">孙平</a>
-                </li>
-              
-            </ul>
-          </div>
         
 
       </section>
@@ -484,6 +500,9 @@
       
 
     </div>
+
+
+
   </aside>
 
 
@@ -493,7 +512,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>
@@ -503,16 +524,31 @@
   <span class="author" itemprop="copyrightHolder">解晗</span>
 </div>
 
+
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://maii.me">Maii</a>
 </div>
 
-<div class="theme-info">
+<div class="powered-by">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Maii
   </a>
+
+
 </div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
 
         
 
@@ -576,13 +612,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
@@ -598,12 +627,31 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
@@ -611,6 +659,7 @@
   
 
   
+
 
 </body>
 </html>
