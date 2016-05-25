@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="表单事件 input textarea 焦点事件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="input和textarea提示文字效果">
+<meta property="og:url" content="http://yoursite.com/2016/05/25/input和textarea提示文字效果/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！">
+<meta property="og:image" content="http://o7oakcqua.bkt.clouddn.com/login.png">
+<meta property="og:image" content="http://o7oakcqua.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-25%20%E4%B8%8B%E5%8D%882.30.20.png">
+<meta property="og:updated_time" content="2016-05-25T07:03:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="input和textarea提示文字效果">
+<meta name="twitter:description" content="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！">
+<meta name="twitter:image" content="http://o7oakcqua.bkt.clouddn.com/login.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> input和textarea提示文字效果 | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                input和textarea提示文字效果
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-05-25T09:59:23+08:00" content="2016-05-25">
+              2016-05-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/25/input和textarea提示文字效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/input和textarea提示文字效果/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！"><a href="#有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！" class="headerlink" title="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！"></a>有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！</h4><a id="more"></a>
+<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li>焦点事件：能够使浏览器区分用户输入的对象，当一个元素有焦点的时候，那么他就可以接收用户的输入。</li>
+</ul>
+<p>当然，不是所有的元素都能接受焦点，他的要求是响应用户操作的元素才有焦点。</p>
+<p>比如<code>input</code>,下拉列表等，这些都是在和用户进行交互。</p>
+<ul>
+<li>input：表单标签默认的属性是文本输入框。</li>
+<li>textarea：表单标签文本域，常见的应用是用户留言框。</li>
+<li>placeholder：h5新增属性，该值的内容将作为灰字提示显示在文本框中，当文本框获得焦点</li>
+</ul>
+<p>（或输入内容）时，提示文字消失。</p>
+<hr>
+<h3 id="以下以（input-textarea举例）"><a href="#以下以（input-textarea举例）" class="headerlink" title="以下以（input/textarea举例）"></a>以下以（input/textarea举例）</h3><h6 id="input使用这种方法的代码与textarea同理"><a href="#input使用这种方法的代码与textarea同理" class="headerlink" title="(input使用这种方法的代码与textarea同理)"></a>(input使用这种方法的代码与textarea同理)</h6><h4 id="一、textareainput实现简单版输入数据默认文本消失"><a href="#一、textareainput实现简单版输入数据默认文本消失" class="headerlink" title="一、textareainput实现简单版输入数据默认文本消失"></a>一、textareainput实现简单版输入数据默认文本消失</h4><h6 id="但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。"><a href="#但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。" class="headerlink" title="(但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。)"></a>(但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。)</h6><h5 id="textarea实现方法"><a href="#textarea实现方法" class="headerlink" title="textarea实现方法"></a>textarea实现方法</h5><ul>
+<li>(html部分):<pre>&lt;textarea id="text1"&gt;你可以在这里说点什么哦!&lt;/textarea&gt;
+</pre></li>
+<li>(css部分)：<pre>#text1{
+      width: 200px;
+      height: 300px;
+      resize:none;
+      outline: none;
+  }    
+</pre></li>
+<li>(js部分)：<br><pre><br>window.onload=function(){<br>  var text1=document.getElementById(‘text1’);<br>  text1.onclick=function(){<pre><code>if (this.value==&quot;你可以在这里说点什么哦！&quot;) {
+    this.value=&quot;&quot;;
+}else if (this.value==&quot;&quot;) {
+    this.value=&quot;你可以在这里说点什么哦！&quot;
+};
+</code></pre>  }<br>}<br></pre><h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5></li>
+</ul>
+<ol>
+<li>textarea没有value属性；文本之间的文字可以作为他的value值在js中使用。</li>
+<li>css样式中，大小固定，将它的resize设置为none，说明禁止用户进行缩放。</li>
+<li>利用js对他的value值进行判断即可。</li>
+</ol>
+<hr>
+<h4 id="二、input实现升级版默认文本消失再自动出现"><a href="#二、input实现升级版默认文本消失再自动出现" class="headerlink" title="二、input实现升级版默认文本消失再自动出现"></a>二、input实现升级版默认文本消失再自动出现</h4><p><img src="http://o7oakcqua.bkt.clouddn.com/login.png" alt=""></p>
+<ul>
+<li>(html部分):<pre>
+&lt;p id="p1"&gt;登陆邮箱&lt;/p&gt;
+&lt;input type="text" value="请输入" id="text1"&gt;
+</pre></li>
+<li>(css部分)：<pre>#p1{
+      color: skyblue;
+      font-size: 20px;
+}#text1{
+      width: 200px;
+      height: 30px;
+      box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      -o-box-sizing:border-box;
+      -ms-box-sizing:border-box;
+      outline: none;
+}</pre></li>
+<li><p>(js部分)：<br><pre><br>window.onload=function(){</pre></p>
+<pre><code>var text1=document.getElementById(&apos;text1&apos;);
+text1.onfocus=function(){
+     if(this.value==&quot;请输入&quot;) {
+        this.value=&quot;&quot;;
+    }
+}
+text1.onblur=function(){
+     if(this.value==&quot;&quot;) {
+        this.value=&quot;请输入&quot;;
+    };
+}
+</code></pre><p>  }<br></p>
+<h5 id="分析：-1"><a href="#分析：-1" class="headerlink" title="分析："></a>分析：</h5></li>
+<li><p>input标签自带默认属性border和padding共计6px的值，用css3的box-sizing</p>
+</li>
+</ul>
+<p>可以清楚默认样式，但是具有兼容性，所以添加前缀。border-box属性是指border和padding</p>
+<ul>
+<li>计入width之内。这样input的宽高就没有误差了。</li>
+<li>outline为none就是去掉他的蓝色框默认属性。<br>这里用获取焦点onfocs和失去焦点onblur事件来对此进行判断。</li>
+</ul>
+<hr>
+<h4 id="三、input实现完美版默认文本消失再自动出现"><a href="#三、input实现完美版默认文本消失再自动出现" class="headerlink" title="三、input实现完美版默认文本消失再自动出现"></a>三、input实现完美版默认文本消失再自动出现</h4><p><img src="http://o7oakcqua.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-25%20%E4%B8%8B%E5%8D%882.30.20.png" alt=""></p>
+<ul>
+<li>这个H5新属性placeholder与type的区别在于，【鼠标点击输入】后，默认文本才会消失。</li>
+</ul>
+<p>而type里的value值是当【鼠标点击】时，默认文本就会消失。</p>
+<ul>
+<li>(html部分):<pre>
+&lt;p id="p1"&gt;登陆邮箱&lt;/p&gt;
+&lt;input placeholder="这是H5新标签"id="text1"&gt;
+</pre></li>
+<li>(css部分)：<pre>#p1{
+      color: pink;
+      font-size: 20px;
+}#text1{
+      width: 200px;
+      height: 30px;
+      box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      -o-box-sizing:border-box;
+      -ms-box-sizing:border-box;
+      outline: none;
+}</pre></li>
+<li><p>(js部分)：<br><pre><br>window.onload=function(){</pre></p>
+<pre><code>var text1=document.getElementById(&apos;text1&apos;);
+text1.onfocus=function(){
+     if(this.value==&quot;请输入&quot;) {
+        this.value=&quot;&quot;;
+    }
+}
+text1.onblur=function(){
+     if(this.value==&quot;&quot;) {
+        this.value=&quot;请输入&quot;;
+    };
+}
+</code></pre><p>  }<br></p>
+<h5 id="lt-input-placeholder-”这是H5新标签”id-”text1”-gt"><a href="#lt-input-placeholder-”这是H5新标签”id-”text1”-gt" class="headerlink" title="&lt;input placeholder=”这是H5新标签”id=”text1”&gt;"></a>&lt;input placeholder=”这是H5新标签”id=”text1”&gt;</h5><h5 id="几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt"><a href="#几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt" class="headerlink" title="几乎等同于&lt;input type=”text” value=”请输入” id=”text1”&gt;"></a>几乎等同于&lt;input type=”text” value=”请输入” id=”text1”&gt;</h5></li>
+<li><p>但是<code>input</code>标签palceholder这个属性用户的体验性能更好一些！</p>
+</li>
+</ul>
+<p>由于placeholder是html5的新属性，可想而知，仅支持html5的浏览器才支持placeholder，</p>
+<p>目前最新的firefox、chrome、safari以及ie10都支持，ie6到ie9都不支持。</p>
+<hr>
+<h4 id="很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！"><a href="#很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！" class="headerlink" title="很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！"></a>很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！</h4>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/表单事件-input-textarea-焦点事件/" rel="tag">#表单事件 input textarea 焦点事件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/23/面向对象基础知识/" rel="next" title="面向对象基础知识">
+                <i class="fa fa-chevron-left"></i> 面向对象基础知识
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/25/input和textarea提示文字效果/"
+           data-title="input和textarea提示文字效果" data-url="http://yoursite.com/2016/05/25/input和textarea提示文字效果/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！"><span class="nav-number">1.</span> <span class="nav-text">有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">2.</span> <span class="nav-text">名词解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下以（input-textarea举例）"><span class="nav-number"></span> <span class="nav-text">以下以（input/textarea举例）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#input使用这种方法的代码与textarea同理"><span class="nav-number">0.0.1.</span> <span class="nav-text">(input使用这种方法的代码与textarea同理)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、textareainput实现简单版输入数据默认文本消失"><span class="nav-number">1.</span> <span class="nav-text">一、textareainput实现简单版输入数据默认文本消失</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。"><span class="nav-number">1.0.1.</span> <span class="nav-text">(但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#textarea实现方法"><span class="nav-number">1.1.</span> <span class="nav-text">textarea实现方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">1.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、input实现升级版默认文本消失再自动出现"><span class="nav-number">2.</span> <span class="nav-text">二、input实现升级版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分析：-1"><span class="nav-number">2.1.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、input实现完美版默认文本消失再自动出现"><span class="nav-number">3.</span> <span class="nav-text">三、input实现完美版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-input-placeholder-”这是H5新标签”id-”text1”-gt"><span class="nav-number">3.1.</span> <span class="nav-text"><input placeholder=”这是H5新标签”id=”text1”></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt"><span class="nav-number">3.2.</span> <span class="nav-text">几乎等同于<input type=”text” value=”请输入” id=”text1”></span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！"><span class="nav-number">4.</span> <span class="nav-text">很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://http://xiehan126.github.io/">解晗</a>
+</div>
+
+<div class="powered-by">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.解晗
+  </a>
+
+
+</div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+</body>
+</html>
