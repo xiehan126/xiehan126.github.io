@@ -92,7 +92,7 @@
 <meta property="og:description" content="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！">
 <meta property="og:image" content="http://o7oakcqua.bkt.clouddn.com/login.png">
 <meta property="og:image" content="http://o7oakcqua.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-25%20%E4%B8%8B%E5%8D%882.30.20.png">
-<meta property="og:updated_time" content="2016-05-25T07:55:32.000Z">
+<meta property="og:updated_time" content="2016-05-25T08:03:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="input和textarea提示文字效果">
 <meta name="twitter:description" content="有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！">
@@ -408,8 +408,26 @@ window.onload=function(){
 <ul>
 <li>(js部分)：</li>
 </ul>
-<p><pre><br><code><br>window.onload=function(){<br>    var text1=document.getElementById(‘text1’);<br>    text1.onfocus=function(){<br>    if(this.value==”请输入”){<br>        this.value=””;}}<br>    text1.onblur=function(){<br>    if(this.value==””){<br>        this.value=”请输入”;<br>        }<br>    }<br>}<br></code><br></pre></p>
-<h5 id="lt-input-placeholder-”这是H5新标签”id-”text1”-gt"><a href="#lt-input-placeholder-”这是H5新标签”id-”text1”-gt" class="headerlink" title="&lt;input placeholder=”这是H5新标签”id=”text1”&gt;"></a>&lt;input placeholder=”这是H5新标签”id=”text1”&gt;</h5><h5 id="几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt"><a href="#几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt" class="headerlink" title="几乎等同于&lt;input type=”text” value=”请输入” id=”text1”&gt;"></a>几乎等同于&lt;input type=”text” value=”请输入” id=”text1”&gt;</h5><ul>
+<pre>
+<code>
+window.onload=function(){
+    var text1=document.getElementById('text1');
+    text1.onfocus=function(){
+    if(this.value=="请输入"){
+        this.value="";}}
+    text1.onblur=function(){
+    if(this.value==""){
+        this.value="请输入";
+        }
+    }
+}
+</code>
+</pre>
+
+<hr>
+<p><pre><code>&lt;input placeholder=”这是H5新标签”id=”text1”&gt;</code></pre></p>
+<p><pre><code>&lt;input type=”text” value=”请输入” id=”text1”&gt;</code></pre></p>
+<h5 id="二者几乎在使用上等同。"><a href="#二者几乎在使用上等同。" class="headerlink" title="二者几乎在使用上等同。"></a>二者几乎在使用上等同。</h5><ul>
 <li>但是<code>input</code>标签palceholder这个属性用户的体验性能更好一些！</li>
 </ul>
 <p>由于placeholder是html5的新属性，可想而知，仅支持html5的浏览器才支持placeholder，</p>
@@ -562,7 +580,7 @@ window.onload=function(){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！"><span class="nav-number">1.</span> <span class="nav-text">有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">2.</span> <span class="nav-text">名词解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下以（input-textarea举例）"><span class="nav-number"></span> <span class="nav-text">以下以（input/textarea举例）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#input使用这种方法的代码与textarea同理"><span class="nav-number">0.0.1.</span> <span class="nav-text">(input使用这种方法的代码与textarea同理)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、textareainput实现简单版输入数据默认文本消失"><span class="nav-number">1.</span> <span class="nav-text">一、textareainput实现简单版输入数据默认文本消失</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。"><span class="nav-number">1.0.1.</span> <span class="nav-text">(但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#textarea实现方法"><span class="nav-number">1.1.</span> <span class="nav-text">textarea实现方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">1.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、input实现升级版默认文本消失再自动出现"><span class="nav-number">2.</span> <span class="nav-text">二、input实现升级版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分析：-1"><span class="nav-number">2.1.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、input实现完美版默认文本消失再自动出现"><span class="nav-number">3.</span> <span class="nav-text">三、input实现完美版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-input-placeholder-”这是H5新标签”id-”text1”-gt"><span class="nav-number">3.1.</span> <span class="nav-text"><input placeholder=”这是H5新标签”id=”text1”></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几乎等同于-lt-input-type-”text”-value-”请输入”-id-”text1”-gt"><span class="nav-number">3.2.</span> <span class="nav-text">几乎等同于<input type=”text” value=”请输入” id=”text1”></span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！"><span class="nav-number">4.</span> <span class="nav-text">很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！"><span class="nav-number">1.</span> <span class="nav-text">有时候在网站的登陆和注册页面的时候，常常会看到输入框里面会有提示文字，当离开时候，默认的提示文字又会消失，这种效果如何实现，好奇的人们要看这里！！！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">2.</span> <span class="nav-text">名词解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下以（input-textarea举例）"><span class="nav-number"></span> <span class="nav-text">以下以（input/textarea举例）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#input使用这种方法的代码与textarea同理"><span class="nav-number">0.0.1.</span> <span class="nav-text">(input使用这种方法的代码与textarea同理)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、textareainput实现简单版输入数据默认文本消失"><span class="nav-number">1.</span> <span class="nav-text">一、textareainput实现简单版输入数据默认文本消失</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。"><span class="nav-number">1.0.1.</span> <span class="nav-text">(但是，这种只能实现当用户输入数据的时候，默认字体消失，无法完成当鼠标离开的时候，默认文本在恢复回来。)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#textarea实现方法"><span class="nav-number">1.1.</span> <span class="nav-text">textarea实现方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">1.2.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、input实现升级版默认文本消失再自动出现"><span class="nav-number">2.</span> <span class="nav-text">二、input实现升级版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分析：-1"><span class="nav-number">2.1.</span> <span class="nav-text">分析：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、input实现完美版默认文本消失再自动出现"><span class="nav-number">3.</span> <span class="nav-text">三、input实现完美版默认文本消失再自动出现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二者几乎在使用上等同。"><span class="nav-number">3.1.</span> <span class="nav-text">二者几乎在使用上等同。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！"><span class="nav-number">4.</span> <span class="nav-text">很开森可以share我自己的想法在这里，要是有错误，可以友好地提出来哦！</span></a></li></ol></div>
             
           </div>
         </section>
