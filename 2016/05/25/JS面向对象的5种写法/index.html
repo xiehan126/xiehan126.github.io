@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Emmet 基本语法(转载)," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。">
+<meta name="description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Emmet基本语法">
-<meta property="og:url" content="http://yoursite.com/2016/05/30/Emmet基础语法/index.html">
+<meta property="og:title" content="JS面向对象的5种写法">
+<meta property="og:url" content="http://yoursite.com/2016/05/25/JS面向对象的5种写法/index.html">
 <meta property="og:site_name" content="码农小晗晗">
-<meta property="og:description" content="在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。">
-<meta property="og:updated_time" content="2016-05-30T12:01:29.000Z">
+<meta property="og:description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
+<meta property="og:updated_time" content="2016-06-08T03:04:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Emmet基本语法">
-<meta name="twitter:description" content="在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。">
+<meta name="twitter:title" content="JS面向对象的5种写法">
+<meta name="twitter:description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> Emmet基本语法 | 码农小晗晗 </title>
+  <title> JS面向对象的5种写法 | 码农小晗晗 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -217,7 +217,7 @@
             
             
               
-                Emmet基本语法
+                JS面向对象的5种写法
               
             
           </h1>
@@ -229,8 +229,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-30T18:02:05+08:00" content="2016-05-30">
-              2016-05-30
+            <time itemprop="dateCreated" datetime="2016-05-25T17:11:40+08:00" content="2016-05-25">
+              2016-05-25
             </time>
           </span>
 
@@ -240,8 +240,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/30/Emmet基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/Emmet基础语法/" itemprop="commentsCount"></span>
+                <a href="/2016/05/25/JS面向对象的5种写法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/JS面向对象的5种写法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -266,117 +266,17 @@
       
 
       
-        <h4 id="在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。"><a href="#在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。" class="headerlink" title="在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。"></a>在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。</h4><a id="more"></a>
-<ul>
-<li>生成后代元素：<code>&gt;</code>大于号表示后面要生成的内容是当前标签的后代<br><code>nav&gt;ul&gt;li</code><br>每个命令输完后按下Tab键即可快速得到代码</li>
-</ul>
-<pre>
-<code>
-&lt;nav&gt;
-   &lt;ul&gt;
-       &lt;li&gt;&lt;/li&gt;
-   &lt;/ul&gt;
-&lt;/nav&gt;
-</code>
-</pre>
-
-
-<ul>
-<li>生成兄弟元素：<code>+</code>加号表示后面的元素和前面的元素是兄弟元素<code>div+p+bq</code>得到代码如下：</li>
-</ul>
-<pre>
-<code>
-&lt;div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;blockquote&gt;&lt;/blockquote&gt;
-</code>
-</pre>
-
-<ul>
-<li>生成上级元素：<code>^</code>表示^后面的元素与^前面的元素的父元素是平级，即兄弟元素。一个^表示提升一个层级，两个提升两级<br><code>div+div&gt;p&gt;span+em^bq</code>得到代码如下：</li>
-</ul>
-<pre>
-<code>
-&lt;div&gt;&lt;/div&gt;
-&lt;div&gt;
-    &lt;p&gt&lt;span&gt&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;
-    &lt;blockquote&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-</code>
-</pre>
-
-
-<p><code>div+div&gt;p&gt;span+em^^bq</code>得到代码如下：</p>
-<pre>
-<code>&lt;div&gt;&lt;/div&gt;
-&lt;div&gt;
-    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;&lt;/blockquote&gt;
-</code>
-</pre>
-
-<ul>
-<li>生成类名<code>.</code>Emmet 默认的标签为<code>div</code>，如果我们不给出标签名称的话，默认就生成<code>div</code>标签。Emmet会根据父标签进行判定。比如在&lt;ul&gt;中输入<code>.item</code>，就会生成&lt;li class=”item”&gt;&lt;/li&gt;<br><code>.container</code>得到代码如下：<br>&lt;div class=”container”&gt;&lt;/div&gt;</li>
-</ul>
-<p>如果想生成多个类名可连续写<br><code>.container.wrapper.more</code>得到代码如下：<br> &lt;div class=”container wrapper more”&gt;&lt;/div&gt;</p>
-<ul>
-<li><p>生成ID:#<br>命令：<code>#container</code>得到代码如下：<br>&lt;div id=”container”&gt;&lt;/div&gt;</p>
-</li>
-<li><p>生成分组：<code>()</code>用括号进行分组，这样可以更加明确要生成的结构，特别是层次关系<br>命令：(.foo&gt;h1)+(.bar&gt;h2)  得到代码如下：</p>
-</li>
-</ul>
-<pre>
-<code>
-&lt;div class="foo"&gt;
-    &lt;h1&gt;&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div class="bar"&gt;
-    &lt;h2>&lt;/h2&gt;
-&lt;/div&gt;
-</code>
-</pre>
-
-<ul>
-<li>重复生成多份：<code>*</code>号后面是想重复生成的份数<br><code>ul&gt;li*5</code>得到代码如下：</li>
-</ul>
-<pre>
-<code>
-&lt;ul&gt;
-    &lt;li&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code>
-</pre>
-
-<ul>
-<li>对生成内容依次编号：<code>$</code>$就表示一位数字，只出现一个的话，就从1开始。如果出现多个，就从0开始。如果我想生成三位数的序号，那么要写三个$<br><code>ul&gt;li.item$*5</code>得到代码如下：</li>
-</ul>
-<pre>
-<code>
-&lt;ul&gt;
-    &lt;li class="item1"&gt;&lt;/li&gt;
-    &lt;li class="item1"&gt;&lt;/li&gt;
-       &lt;li class="item1"&gt;&lt;/li&gt;
-       &lt;li class="item1"&gt;&lt;/li&gt;
-    &lt;li class="item1"&gt;&lt;/li&gt;
-&lt;ul&gt;
-</code>
-</pre>
-
-
-<ul>
-<li>生成自定义属性：[attr]   中括号里面的内容是你想添加的属性</li>
-</ul>
-<p><code>td[rowspan=2 colspan=3 title]</code>得到代码如下：<br>&lt;td rowspan=”2” colspan=”3” title=””&gt;&lt;/td&gt;</p>
-<ul>
-<li>生成文本内容：{}  大括号里面是你想添加的文本内容</li>
-</ul>
-<p><code>a{Click me}</code>得到代码如下：<br>&lt;a href=””&gt;Click me&lt;/a&gt;</p>
-<p><code>p&gt;{Click }+a{here}+{ to continue}</code>得到代码如下：<br>&lt;p&gt;Click &lt;a href=””&gt;here&lt;/a&gt;to continue&lt;/p&gt;</p>
+        <h3 id="简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"><a href="#简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。" class="headerlink" title="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"></a>简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。</h3><p>(转载自Web前端技术论坛)<br><a id="more"></a><br>定义一个对象圆cicle，拥有变量半径 r，常量π Pi ，求解圆的面积 area()</p>
+<p>第一种写法<br>DEMO1. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function cicle(r)&#123;</span><br><span class="line">	this.r = r;</span><br><span class="line">&#125;</span><br><span class="line">cicle.Pi = 3.14159;</span><br><span class="line">cicle.prototype.area = function()&#123;</span><br><span class="line">	return cicle.Pi*this.r*this.r;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">var c = new cicle(2.0);//传参调用</span><br><span class="line">alert(c.area());</span><br></pre></td></tr></table></figure>
+<p>第二种写法<br>DEMO2. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var cicle = function()&#123;</span><br><span class="line">	var obj = &#123;&#125;</span><br><span class="line">	obj.Pi = 3.14159;</span><br><span class="line">	obj.area=function()&#123;</span><br><span class="line">		return this.Pi*r*r;</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">var c = new cicle();</span><br><span class="line">alert(c.area(2.0));</span><br></pre></td></tr></table></figure>
+<p>第三种写法<br>DEMO3. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var cicle = new Object();</span><br><span class="line">cicle.Pi = 3.14159;</span><br><span class="line">cicle.area = function()&#123;</span><br><span class="line">	return this.Pi*r*r;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">alert(c.area(2.0));</span><br></pre></td></tr></table></figure>
+<p>第四种写法<br>DEMO4. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var cicle = &#123;</span><br><span class="line">&quot;Pi&quot; : 3.14159,</span><br><span class="line">&quot;area&quot;:function(r)&#123;</span><br><span class="line">	return this.Pi*r*r</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">alert(cicle.area(2.0));</span><br></pre></td></tr></table></figure>
+<p>第五种写法<br>DEMO5. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var cicle = new Function(&quot;this.Pi=3.14159;this.aera = function(r)&#123;return this.Pi*r*r;&#125;&quot;);</span><br><span class="line">//调用执行</span><br><span class="line">alert((new cicle()).area(2.0));</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -398,7 +298,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Emmet-基本语法-转载/" rel="tag">#Emmet 基本语法(转载)</a>
+            <a href="/tags/js/" rel="tag">#js</a>
           
         </div>
       
@@ -407,13 +307,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/25/JS面向对象的5种写法/" rel="next" title="JS面向对象的5种写法">
-                <i class="fa fa-chevron-left"></i> JS面向对象的5种写法
+              <a href="/2016/05/25/input和textarea提示文字效果/" rel="next" title="input和textarea提示文字效果">
+                <i class="fa fa-chevron-left"></i> input和textarea提示文字效果
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/30/Emmet基础语法/" rel="prev" title="Emmet基本语法">
+                Emmet基本语法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -439,8 +343,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/30/Emmet基础语法/"
-           data-title="Emmet基本语法" data-url="http://yoursite.com/2016/05/30/Emmet基础语法/">
+      <div class="ds-thread" data-thread-key="2016/05/25/JS面向对象的5种写法/"
+           data-title="JS面向对象的5种写法" data-url="http://yoursite.com/2016/05/25/JS面向对象的5种写法/">
       </div>
     
   </div>
@@ -524,7 +428,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。"><span class="nav-number">1.</span> <span class="nav-text">在前端开发的过程中，它可以极大的提高代码编写的效率，同时还有多种实用的功能帮助进行前端开发。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"><span class="nav-number">1.</span> <span class="nav-text">简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。</span></a></li></ol></div>
             
           </div>
         </section>
