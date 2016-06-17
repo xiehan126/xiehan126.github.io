@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="button input," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
+<meta name="description" content="我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS面向对象的5种写法">
-<meta property="og:url" content="http://yoursite.com/2016/05/25/JS面向对象的5种写法/index.html">
+<meta property="og:title" content="标签button和标签input的区别">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/button和input的区别/index.html">
 <meta property="og:site_name" content="码农小晗晗">
-<meta property="og:description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
-<meta property="og:updated_time" content="2016-06-08T03:04:49.000Z">
+<meta property="og:description" content="我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！">
+<meta property="og:updated_time" content="2016-06-17T03:47:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS面向对象的5种写法">
-<meta name="twitter:description" content="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。(转载自Web前端技术论坛)">
+<meta name="twitter:title" content="标签button和标签input的区别">
+<meta name="twitter:description" content="我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> JS面向对象的5种写法 | 码农小晗晗 </title>
+  <title> 标签button和标签input的区别 | 码农小晗晗 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -217,7 +217,7 @@
             
             
               
-                JS面向对象的5种写法
+                标签button和标签input的区别
               
             
           </h1>
@@ -229,8 +229,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-25T17:11:40+08:00" content="2016-05-25">
-              2016-05-25
+            <time itemprop="dateCreated" datetime="2016-06-17T09:57:25+08:00" content="2016-06-17">
+              2016-06-17
             </time>
           </span>
 
@@ -240,8 +240,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/25/JS面向对象的5种写法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/JS面向对象的5种写法/" itemprop="commentsCount"></span>
+                <a href="/2016/06/17/button和input的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/17/button和input的区别/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -266,18 +266,65 @@
       
 
       
-        <h3 id="简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"><a href="#简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。" class="headerlink" title="简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"></a>简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。</h3><p>(转载自Web前端技术论坛)<br><a id="more"></a><br>定义一个对象圆cicle，拥有变量半径 r，常量π Pi ，求解圆的面积 area()</p>
-<p>第一种写法<br>DEMO1. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function cicle(r)&#123;</span><br><span class="line">	this.r = r;</span><br><span class="line">&#125;</span><br><span class="line">cicle.Pi = 3.14159;</span><br><span class="line">cicle.prototype.area = function()&#123;</span><br><span class="line">	return cicle.Pi*this.r*this.r;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">var c = new cicle(2.0);//传参调用</span><br><span class="line">alert(c.area());</span><br></pre></td></tr></table></figure>
-<p>第二种写法<br>DEMO2. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var cicle = function()&#123;</span><br><span class="line">	var obj = &#123;&#125;</span><br><span class="line">	obj.Pi = 3.14159;</span><br><span class="line">	obj.area=function()&#123;</span><br><span class="line">		return this.Pi*r*r;</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">var c = new cicle();</span><br><span class="line">alert(c.area(2.0));</span><br></pre></td></tr></table></figure>
-<p>第三种写法<br>DEMO3. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var cicle = new Object();</span><br><span class="line">cicle.Pi = 3.14159;</span><br><span class="line">cicle.area = function()&#123;</span><br><span class="line">	return this.Pi*r*r;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">alert(c.area(2.0));</span><br></pre></td></tr></table></figure>
-<p>第四种写法<br>DEMO4. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var cicle = &#123;</span><br><span class="line">&quot;Pi&quot; : 3.14159,</span><br><span class="line">&quot;area&quot;:function(r)&#123;</span><br><span class="line">	return this.Pi*r*r</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//调用执行</span><br><span class="line">alert(cicle.area(2.0));</span><br></pre></td></tr></table></figure>
-<p>第五种写法<br>DEMO5. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var cicle = new Function(&quot;this.Pi=3.14159;this.aera = function(r)&#123;return this.Pi*r*r;&#125;&quot;);</span><br><span class="line">//调用执行</span><br><span class="line">alert((new cicle()).area(2.0));</span><br></pre></td></tr></table></figure>
+        <h4 id="我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！"><a href="#我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！" class="headerlink" title="我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！"></a>我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！</h4><a id="more"></a>
+<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li>图像映射（热点地图）:带有可点击区域的一幅图像。后续会做补充。</li>
+<li>图像映射举个例子：图像映射实现在一幅地图的网页上做映射，点击辽宁区域，跳转到该区域的政府官网。</li>
+</ul>
+<hr>
+<h4 id="一、相同点"><a href="#一、相同点" class="headerlink" title="一、相同点"></a>一、相同点</h4><ul>
+<li>规范中指名：可以用&lt;button&gt;和&lt;input&gt;来做表单按扭,作用相同。</li>
+</ul>
+<h4 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h4><h5 id="1-定义和用法"><a href="#1-定义和用法" class="headerlink" title="1.定义和用法"></a>1.定义和用法</h5><ul>
+<li>&lt;button&gt;标签之间,可以放置文本或图像。标签之间的所有内容都是按钮的内容。</li>
+</ul>
+<p>例如，我们可以在按钮中包括一个图像和相关的文本，用它们在按钮中创建一个吸引人的标记图像。</p>
+<pre>&lt;button&gt;I do&lt;/button&gt;</pre>
+<pre>&lt;button&gt;&lt;img src="button.gif" alt="" /&gt;&lt;button&gt;</pre>
 
+<ul>
+<li>&lt;input type=”button” value=”I do”&gt;的按钮内容是要写在value值里面。</li>
+</ul>
+<h5 id="2-浏览器支持"><a href="#2-浏览器支持" class="headerlink" title="2. 浏览器支持"></a>2. 浏览器支持</h5><ul>
+<li><p>所有主流浏览器都支持&lt;button&gt;标签。</p>
+</li>
+<li><p>重要事项：如果在 HTML 表单中使用 &lt;button&gt;元素，不同的浏览器会提交不同的值。</p>
+</li>
+</ul>
+<p>Internet Explorer 将提交&lt;button&gt;与&lt;button&gt;之间的文本，而其他浏览器将提交 value 属性的内容。</p>
+<p>请在 HTML 表单中使用 input 元素来创建按钮。</p>
+<h5 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3.注意事项"></a>3.注意事项</h5><ul>
+<li>不能使用热点地图，即不能&lt;img src=”foo.gif” usemap=”…” /&gt;，这是不合法的。</li>
+</ul>
+<h3 id="设置大小的坑（-lt-input-type-”button”-gt-）"><a href="#设置大小的坑（-lt-input-type-”button”-gt-）" class="headerlink" title="设置大小的坑（&lt;input type=”button”&gt;）"></a>设置大小的坑（&lt;input type=”button”&gt;）</h3><ul>
+<li>无法通过css样式直接编辑它的宽和高。需要借助其他样式来设置。</li>
+</ul>
+<h5 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h5><pre>
+<code>
+&lt;input type="button" value="按钮" class="btn1"&gt;
+</code>
+</pre>
+
+<h4 id="css部分（方法一：借助添加背景颜色）"><a href="#css部分（方法一：借助添加背景颜色）" class="headerlink" title="css部分（方法一：借助添加背景颜色）"></a>css部分（方法一：借助添加背景颜色）</h4><pre>
+<code>
+        background-color: green;
+        width: 50px;
+        height: 50px;
+        display: block;
+</code>
+</pre>
+
+<h4 id="css部分（方法二：借助添加border大小）"><a href="#css部分（方法二：借助添加border大小）" class="headerlink" title="css部分（方法二：借助添加border大小）"></a>css部分（方法二：借助添加border大小）</h4><pre>
+<code>
+        display: block;
+        border:1000px;//border可以任意设置一个数值
+        width:300px;
+        height: 300px;
+</code>
+</pre>
+
+<hr>
+<h5 id="不知道这样设置的原理，但是我找到了解决这个问题的方法-利用以上方法，按钮大小就会改变。"><a href="#不知道这样设置的原理，但是我找到了解决这个问题的方法-利用以上方法，按钮大小就会改变。" class="headerlink" title="不知道这样设置的原理，但是我找到了解决这个问题的方法~利用以上方法，按钮大小就会改变。"></a>不知道这样设置的原理，但是我找到了解决这个问题的方法~利用以上方法，按钮大小就会改变。</h5>
       
     </div>
 
@@ -298,7 +345,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag">#js</a>
+            <a href="/tags/button-input/" rel="tag">#button input</a>
           
         </div>
       
@@ -307,17 +354,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/25/input和textarea提示文字效果/" rel="next" title="input和textarea提示文字效果">
-                <i class="fa fa-chevron-left"></i> input和textarea提示文字效果
+              <a href="/2016/06/16/前后端数据交互方法/" rel="next" title="前后端数据交互方法">
+                <i class="fa fa-chevron-left"></i> 前后端数据交互方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/30/Emmet基础语法/" rel="prev" title="Emmet基本语法">
-                Emmet基本语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -343,8 +386,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/25/JS面向对象的5种写法/"
-           data-title="JS面向对象的5种写法" data-url="http://yoursite.com/2016/05/25/JS面向对象的5种写法/">
+      <div class="ds-thread" data-thread-key="2016/06/17/button和input的区别/"
+           data-title="标签button和标签input的区别" data-url="http://yoursite.com/2016/06/17/button和input的区别/">
       </div>
     
   </div>
@@ -428,7 +471,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单介绍js-面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。"><span class="nav-number">1.</span> <span class="nav-text">简单介绍js 面向对象的5种写法，让你们更快对于对面对象的结构了解清楚。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！"><span class="nav-number">1.</span> <span class="nav-text">我在写代码的过程中，遇到了坑，所以有必要写出来纪念一下啦！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">2.</span> <span class="nav-text">名词解释：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、相同点"><span class="nav-number">3.</span> <span class="nav-text">一、相同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、区别"><span class="nav-number">4.</span> <span class="nav-text">二、区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-定义和用法"><span class="nav-number">4.1.</span> <span class="nav-text">1.定义和用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-浏览器支持"><span class="nav-number">4.2.</span> <span class="nav-text">2. 浏览器支持</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">3.注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置大小的坑（-lt-input-type-”button”-gt-）"><span class="nav-number"></span> <span class="nav-text">设置大小的坑（<input type=”button”>）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#html部分"><span class="nav-number">0.1.</span> <span class="nav-text">html部分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css部分（方法一：借助添加背景颜色）"><span class="nav-number">1.</span> <span class="nav-text">css部分（方法一：借助添加背景颜色）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css部分（方法二：借助添加border大小）"><span class="nav-number">2.</span> <span class="nav-text">css部分（方法二：借助添加border大小）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不知道这样设置的原理，但是我找到了解决这个问题的方法-利用以上方法，按钮大小就会改变。"><span class="nav-number">2.1.</span> <span class="nav-text">不知道这样设置的原理，但是我找到了解决这个问题的方法~利用以上方法，按钮大小就会改变。</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
