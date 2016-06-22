@@ -1,0 +1,634 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php sql," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作为前端开发人员，当前端把数据传给后台，那么后台拿到数据是怎么操作的呢？一句话：php与    sql的完美结合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php对sql的基本操作">
+<meta property="og:url" content="http://yoursite.com/2016/06/18/php对sql的基本操作/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="作为前端开发人员，当前端把数据传给后台，那么后台拿到数据是怎么操作的呢？一句话：php与    sql的完美结合。">
+<meta property="og:updated_time" content="2016-06-22T09:40:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php对sql的基本操作">
+<meta name="twitter:description" content="作为前端开发人员，当前端把数据传给后台，那么后台拿到数据是怎么操作的呢？一句话：php与    sql的完美结合。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> php对sql的基本操作 | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php对sql的基本操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-18T19:08:17+08:00" content="2016-06-18">
+              2016-06-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/18/php对sql的基本操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/php对sql的基本操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为前端开发人员，当前端把数据传给后台，那么后台拿到数据是怎么操作的呢？一句话：php与    sql的完美结合。<br><a id="more"></a></p>
+<h4 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h4><ul>
+<li>PHP：兼容性极好的服务器脚本语言。</li>
+<li>MySQL：是一种运行在服务器的数据库系统。</li>
+</ul>
+<h3 id="1-获取前台传数据-GET-POST"><a href="#1-获取前台传数据-GET-POST" class="headerlink" title="1.获取前台传数据($_GET/$_POST)"></a>1.获取前台传数据($_GET/$_POST)</h3><h3 id="2-链接数据库"><a href="#2-链接数据库" class="headerlink" title="2.链接数据库"></a>2.链接数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$mysqli</span> = new mysqli(<span class="string">'localhost'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'mysql'</span>);</span><br></pre></td></tr></table></figure>
+<!--more-->
+<ul>
+<li><h5 id="此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到"><a href="#此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到" class="headerlink" title="此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到"></a>此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到</h5></li>
+</ul>
+<h5 id="localhost"><a href="#localhost" class="headerlink" title="localhost"></a><span style="color:blue">localhost</span></h5><p>这是你所租用数据库的服务器地址(自行查看)</p>
+<h5 id="username"><a href="#username" class="headerlink" title="username"></a><span style="color:blue">username</span></h5><p>这是登录数据库所在服务器用户名(自行查看)</p>
+<h5 id="password"><a href="#password" class="headerlink" title="password"></a><span style="color:blue">password</span></h5><p>这是登录数据库所在服务器密码(自行查看)</p>
+<h5 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a><span style="color:blue">mysql</span></h5><p>这是你的数据库名称(自行查看)</p>
+<h3 id="3-如何查看数据库是否链接成功"><a href="#3-如何查看数据库是否链接成功" class="headerlink" title="3.如何查看数据库是否链接成功"></a>3.如何查看数据库是否链接成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$mysqli</span>-&gt;connect_errno)&#123;</span><br><span class="line">	die(<span class="variable">$mysqli</span>-&gt;connect_error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？"><a href="#mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？" class="headerlink" title="$mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？"></a>$mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？</h5></li>
+</ul>
+<h5 id="connect-errno"><a href="#connect-errno" class="headerlink" title="connect_errno"></a><span style="color:blue">connect_errno</span></h5><p>返回错误编码，0表示没有错误，其它的都是有错误。</p>
+<h5 id="connect-error"><a href="#connect-error" class="headerlink" title="connect_error"></a><span style="color:blue">connect_error</span></h5><p>返回错误信息，0没有错误时返回一个为null。</p>
+<h5 id="die"><a href="#die" class="headerlink" title="die()"></a><span style="color:blue">die()</span></h5><p>这个函数，是用来打印函数所传参数的值，并且终止此函数后面所有php操作，保护数据安全。</p>
+<h3 id="4-设置读取，写入数据库时的编码格式，现在都用utf8"><a href="#4-设置读取，写入数据库时的编码格式，现在都用utf8" class="headerlink" title="4.设置读取，写入数据库时的编码格式，现在都用utf8"></a>4.设置读取，写入数据库时的编码格式，现在都用utf8</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$mysqli</span>-&gt;query(<span class="string">"set names utf8"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="5-书写增删改查语句并执行"><a href="#5-书写增删改查语句并执行" class="headerlink" title="5.书写增删改查语句并执行"></a>5.书写增删改查语句并执行</h3><ul>
+<li><h5 id="增-insert"><a href="#增-insert" class="headerlink" title="增(insert)"></a>增(insert)</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">"INSERT INTO tableName(username,password) VALUES('maiime','stillAlive')"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>在名字叫tableName的表格中添加username为maiime,password为stillAlive的一条数据(username,password是你自己在数据库表格中设置在两列,可以自行设置)</strong></p>
+<ul>
+<li><h5 id="删-delete"><a href="#删-delete" class="headerlink" title="删(delete)"></a>删(delete)</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">"DELETE FROM tableName WHERE username = 'maiime'"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>在名字叫tableName的表格中删除username为maiime的数据</strong></p>
+<ul>
+<li><h5 id="改-update"><a href="#改-update" class="headerlink" title="改(update)"></a>改(update)</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">"UPDATE tableName SET username = 'stillAlive' WHERE username = 'maiime'"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>在名字叫tableName的表格中把username为maiime的数据的username改成stillAlive</strong></p>
+<ul>
+<li><h5 id="查-select"><a href="#查-select" class="headerlink" title="查(select)"></a>查(select)</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">"SELECT * FROM tableName"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>在名字叫tableName的表格中查找所有数据,星星是通配的意思，就是所有的</strong></p>
+<ul>
+<li><h5 id="这些只是些字符串，真正能执行，还得靠一个函数"><a href="#这些只是些字符串，真正能执行，还得靠一个函数" class="headerlink" title="这些只是些字符串，真正能执行，还得靠一个函数"></a>这些只是些字符串，真正能执行，还得靠一个函数</h5></li>
+</ul>
+<h3 id="6-mysql-query-一般是用来查询数据里面的数据。"><a href="#6-mysql-query-一般是用来查询数据里面的数据。" class="headerlink" title="6.mysql_query()一般是用来查询数据里面的数据。"></a>6.mysql_query()一般是用来查询数据里面的数据。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$results</span>=<span class="variable">$mysqli</span>-&gt;query(<span class="variable">$sql</span>);</span><br></pre></td></tr></table></figure>
+<p>$results返回结果，如果检测成功，$result是返回数据库中的匹配的记录，如果出错则$result为false。<br>需要注意的是，即使数据库中不存在查询的数据，检测也算成功，$result也不会是false.<br>所以，如果要检测数据库中是否有匹配记录就用语句mqsql_fetch_array()来判断。<br>$test=mqsql_fetch_array($result);<br>如果记录为空则$test为false。这样就达到了目的。<br>$results-&gt;num_rows返回mysql数据源影响的行数，如果大于0，则说明数据库存在这个东西，否则反之。</p>
+<h3 id="7-关闭数据库"><a href="#7-关闭数据库" class="headerlink" title="7.关闭数据库"></a>7.关闭数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$mysqli</span>-&gt;close();</span><br></pre></td></tr></table></figure>
+<p>使用完数据库一定要及时断开。</p>
+<h3 id="this-is-end"><a href="#this-is-end" class="headerlink" title="this is end~"></a>this is end~</h3>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php-sql/" rel="tag">#php sql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/18/JS闭包/" rel="next" title="JS闭包">
+                <i class="fa fa-chevron-left"></i> JS闭包
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/18/php对sql的基本操作/"
+           data-title="php对sql的基本操作" data-url="http://yoursite.com/2016/06/18/php对sql的基本操作/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#名词解释："><span class="nav-number">1.</span> <span class="nav-text">名词解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取前台传数据-GET-POST"><span class="nav-number"></span> <span class="nav-text">1.获取前台传数据($_GET/$_POST)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-链接数据库"><span class="nav-number"></span> <span class="nav-text">2.链接数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到"><span class="nav-number">0.1.</span> <span class="nav-text">此函数是用来实例化一个数据库的，关于变量名任意起。它一共有6个参数，但是只有4个经常用到</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#localhost"><span class="nav-number">0.2.</span> <span class="nav-text">localhost</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#username"><span class="nav-number">0.3.</span> <span class="nav-text">username</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#password"><span class="nav-number">0.4.</span> <span class="nav-text">password</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql"><span class="nav-number">0.5.</span> <span class="nav-text">mysql</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-如何查看数据库是否链接成功"><span class="nav-number"></span> <span class="nav-text">3.如何查看数据库是否链接成功</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？"><span class="nav-number">0.1.</span> <span class="nav-text">$mysqli是我们实例化出来的数据库，名字是你在前面实例化时自己起的。这句话能判断数据库是否链接成功，那么它是什么意思呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#connect-errno"><span class="nav-number">0.2.</span> <span class="nav-text">connect_errno</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#connect-error"><span class="nav-number">0.3.</span> <span class="nav-text">connect_error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#die"><span class="nav-number">0.4.</span> <span class="nav-text">die()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置读取，写入数据库时的编码格式，现在都用utf8"><span class="nav-number"></span> <span class="nav-text">4.设置读取，写入数据库时的编码格式，现在都用utf8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-书写增删改查语句并执行"><span class="nav-number"></span> <span class="nav-text">5.书写增删改查语句并执行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#增-insert"><span class="nav-number">0.1.</span> <span class="nav-text">增(insert)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删-delete"><span class="nav-number">0.2.</span> <span class="nav-text">删(delete)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#改-update"><span class="nav-number">0.3.</span> <span class="nav-text">改(update)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查-select"><span class="nav-number">0.4.</span> <span class="nav-text">查(select)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#这些只是些字符串，真正能执行，还得靠一个函数"><span class="nav-number">0.5.</span> <span class="nav-text">这些只是些字符串，真正能执行，还得靠一个函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-mysql-query-一般是用来查询数据里面的数据。"><span class="nav-number"></span> <span class="nav-text">6.mysql_query()一般是用来查询数据里面的数据。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-关闭数据库"><span class="nav-number"></span> <span class="nav-text">7.关闭数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-is-end"><span class="nav-number"></span> <span class="nav-text">this is end~</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://http://xiehan126.github.io/">解晗</a>
+</div>
+
+<div class="powered-by">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.解晗
+  </a>
+
+
+</div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+</body>
+</html>
