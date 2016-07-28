@@ -1,0 +1,613 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="估计大家都知道，用原生js实现ajax特别麻烦，其实只要你理解了，也没有那么难，今天就来教教大家如何用原生的js写一个ajax(get方式)
+1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;1var req = new XMLHttpRequest();">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JavaScript实现ajax">
+<meta property="og:url" content="http://yoursite.com/2016/06/22/原生JavaScript实现ajax/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="估计大家都知道，用原生js实现ajax特别麻烦，其实只要你理解了，也没有那么难，今天就来教教大家如何用原生的js写一个ajax(get方式)
+1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;1var req = new XMLHttpRequest();">
+<meta property="og:updated_time" content="2016-06-27T13:32:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生JavaScript实现ajax">
+<meta name="twitter:description" content="估计大家都知道，用原生js实现ajax特别麻烦，其实只要你理解了，也没有那么难，今天就来教教大家如何用原生的js写一个ajax(get方式)
+1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;1var req = new XMLHttpRequest();">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 原生JavaScript实现ajax | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                原生JavaScript实现ajax
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T20:06:24+08:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/原生JavaScript实现ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/原生JavaScript实现ajax/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>估计大家都知道，用原生js实现ajax特别麻烦，其实只要你理解了，也没有那么难，今天就来教教大家如何用原生的js写一个ajax(get方式)</strong></p>
+<h3 id="1-实例化一个XMLHttpRequest-用于在后台与服务器交换数据"><a href="#1-实例化一个XMLHttpRequest-用于在后台与服务器交换数据" class="headerlink" title="1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;"></a>1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var req = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>这个对象仅支持ie7以上版本，为了更好的兼容ie,我们会做以下操作：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(window.XMLHttpRequest)&#123;</span><br><span class="line">	var req = new XMLHttpRequest();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	var req = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置链接方式与url"><a href="#2-设置链接方式与url" class="headerlink" title="2.设置链接方式与url"></a>2.设置链接方式与url</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.open(<span class="string">'GET'</span>,url);</span><br></pre></td></tr></table></figure>
+<p><strong>第一个参数表示以get方式请求，第二个参数是你要请求的地址</strong></p>
+<h3 id="3-发送"><a href="#3-发送" class="headerlink" title="3.发送"></a>3.发送</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.send();</span><br></pre></td></tr></table></figure>
+<p><strong>这个里面的参数常用来传递post数据，现在是get方式，所以不用设置</strong></p>
+<h3 id="4-判断请求是否成功"><a href="#4-判断请求是否成功" class="headerlink" title="4.判断请求是否成功"></a>4.判断请求是否成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">req.onreadystatechange = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">	<span class="keyword">if</span>(req.readyState == 4 $$ req.status == 200)&#123;</span><br><span class="line">		success_fn(req.responseText);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(req.readyState == 4 $$ req.status != 200)&#123;</span><br><span class="line">		error_fn(req.responseText);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>req.onreadystatechange这个函数是用来监控链接状态的，当req.readyState状态码改变时执行该函数，req.readyState的状态码</strong></p>
+<ul>
+<li><h5 id="0：请求未初始化（还没有调用-open-）。"><a href="#0：请求未初始化（还没有调用-open-）。" class="headerlink" title="0：请求未初始化（还没有调用 open()）。"></a>0：请求未初始化（还没有调用 open()）。</h5></li>
+<li><h5 id="1：请求已经建立，但是还没有发送（还没有调用-send-）。"><a href="#1：请求已经建立，但是还没有发送（还没有调用-send-）。" class="headerlink" title="1：请求已经建立，但是还没有发送（还没有调用 send()）。"></a>1：请求已经建立，但是还没有发送（还没有调用 send()）。</h5></li>
+<li><h5 id="2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。"><a href="#2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。" class="headerlink" title="2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。"></a>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</h5></li>
+<li><h5 id="3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。"><a href="#3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。" class="headerlink" title="3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。"></a>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</h5></li>
+<li><h5 id="4：响应已完成；您可以获取并使用服务器的响应了。"><a href="#4：响应已完成；您可以获取并使用服务器的响应了。" class="headerlink" title="4：响应已完成；您可以获取并使用服务器的响应了。"></a>4：响应已完成；您可以获取并使用服务器的响应了。</h5></li>
+</ul>
+<p><strong>req.status这就是我们常说的http 状态码了，如果你还不知道，我说一个数字你肯定知道，404你肯定见过吧，详情请点击<a href="http://baike.baidu.com/link?url=3yJ7CWWYuzk3U5SsSvLjswBqdcP6AT1PcH0dZH6oapmkHE_bOOgY0qh4PzfjnVKdOIyEG3EfFEJvl9RhjlYA2WH7hkxGI9AscvL531tbY52-V77ZYkcg0VEct0z2Uv0XMb_3vYXKV7xRaplt6eQTlq" target="_blank" rel="external">http 状态码</a>，只要你记住200表示成功就行了。</strong></p>
+<p><strong>req.responseText这是获取到后台返回的数据，一般为json字符串！！！那个success_fn()和error_fn()是你自己写的函数。</strong></p>
+<p><strong>如果经常用这个函数我们可以把它封装起来，把url,success_fn(),error_fn()当成参数传递进去就行了。</strong></p>
+<h4 id="post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。"><a href="#post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。" class="headerlink" title="post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。"></a>post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> request_post (url,postbody,success_fn,error_fn) &#123;</span><br><span class="line">	<span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">		var req = new XMLHttpRequest();</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		var req = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	req.open(<span class="string">"POST"</span>, url , <span class="literal">true</span>);</span><br><span class="line">	req.setRequestHeader(<span class="string">"content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">	req.send(postbody);</span><br><span class="line">	req.onreadystatechange = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">		<span class="keyword">if</span> (req.readyState == 4 &amp;&amp; req.status == 200) &#123;</span><br><span class="line">			<span class="keyword">if</span> (success_fn) &#123;</span><br><span class="line">				success_fn(req.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (req.readyState == 4 &amp;&amp; req.status != 200) &#123;</span><br><span class="line">			<span class="keyword">if</span> (error_fn) &#123;</span><br><span class="line">				error_fn(req.statusText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="我们可以看到post方式和get方式还是有一点点区别的。"><a href="#我们可以看到post方式和get方式还是有一点点区别的。" class="headerlink" title="我们可以看到post方式和get方式还是有一点点区别的。"></a>我们可以看到post方式和get方式还是有一点点区别的。</h4><p><strong>req.setRequsetHeader(),这个是用来设置请求头的，你不明白什么是请求头啊，说白了就是伪装的，把form表单的头拿过来放在自己的头上，但是一定记住该操作要放在open()函数的后面，不然会报错的。postbody就是要传递的数据，它就是get方式url问号后面的字符串，怕你们不明天，还是动手写出来吧：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var postbody = <span class="string">"name=maii&amp;age=18"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>明白了吧，我把封装好的get方式请求，也放在下面吧，仅供参考。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> request_get (url,success_callback,error_callback) &#123;</span><br><span class="line">	<span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">		var req = new XMLHttpRequest();</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		var req = new ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">	&#125;	</span><br><span class="line">	req.open(<span class="string">'GET'</span>,url);</span><br><span class="line">	req.send();</span><br><span class="line">	req.onreadystatechange = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">		<span class="keyword">if</span> (req.readyState == 4 &amp;&amp; req.status == 200) &#123;</span><br><span class="line">			<span class="keyword">if</span> (success_callback) &#123;</span><br><span class="line">				success_callback(req.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (req.readyState == 4 &amp;&amp; req.status != 200)&#123;</span><br><span class="line">			<span class="keyword">if</span> (error_callback) &#123;</span><br><span class="line">				error_callback(req.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/21/php操作sql获得的返回值/" rel="next" title="php操作sql获得的返回值">
+                <i class="fa fa-chevron-left"></i> php操作sql获得的返回值
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/22/原生JavaScript实现ajax/"
+           data-title="原生JavaScript实现ajax" data-url="http://yoursite.com/2016/06/22/原生JavaScript实现ajax/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-实例化一个XMLHttpRequest-用于在后台与服务器交换数据"><span class="nav-number">1.</span> <span class="nav-text">1.实例化一个XMLHttpRequest()用于在后台与服务器交换数据;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-设置链接方式与url"><span class="nav-number">2.</span> <span class="nav-text">2.设置链接方式与url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-发送"><span class="nav-number">3.</span> <span class="nav-text">3.发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-判断请求是否成功"><span class="nav-number">4.</span> <span class="nav-text">4.判断请求是否成功</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0：请求未初始化（还没有调用-open-）。"><span class="nav-number">4.0.1.</span> <span class="nav-text">0：请求未初始化（还没有调用 open()）。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1：请求已经建立，但是还没有发送（还没有调用-send-）。"><span class="nav-number">4.0.2.</span> <span class="nav-text">1：请求已经建立，但是还没有发送（还没有调用 send()）。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。"><span class="nav-number">4.0.3.</span> <span class="nav-text">2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。"><span class="nav-number">4.0.4.</span> <span class="nav-text">3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4：响应已完成；您可以获取并使用服务器的响应了。"><span class="nav-number">4.0.5.</span> <span class="nav-text">4：响应已完成；您可以获取并使用服务器的响应了。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。"><span class="nav-number">4.1.</span> <span class="nav-text">post请求方式其实和get方式没有太大的区别的。我直接上封装好的函数吧。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们可以看到post方式和get方式还是有一点点区别的。"><span class="nav-number">4.2.</span> <span class="nav-text">我们可以看到post方式和get方式还是有一点点区别的。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://http://xiehan126.github.io/">解晗</a>
+</div>
+
+<div class="powered-by">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.解晗
+  </a>
+
+
+</div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+</body>
+</html>

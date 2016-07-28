@@ -1,0 +1,646 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="响应式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="想必大家做响应式布局的时候，计算百分比是最头疼的，恨不得把电脑给摔了，今天我就介绍一种我自己认为很简单的响应式布局
+需要的工具:
+lib-flexible（第三方库）
+sublime text
+mac终端
+
+1.sublime 安装cssrem下载地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用rem写傻瓜式响应式布局">
+<meta property="og:url" content="http://yoursite.com/2016/05/20/用rem做傻瓜式响应式布局/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="想必大家做响应式布局的时候，计算百分比是最头疼的，恨不得把电脑给摔了，今天我就介绍一种我自己认为很简单的响应式布局
+需要的工具:
+lib-flexible（第三方库）
+sublime text
+mac终端
+
+1.sublime 安装cssrem下载地址">
+<meta property="og:image" content="https://github.com/hyb628/cssrem/raw/master/cssrem.gif">
+<meta property="og:updated_time" content="2016-05-25T02:17:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用rem写傻瓜式响应式布局">
+<meta name="twitter:description" content="想必大家做响应式布局的时候，计算百分比是最头疼的，恨不得把电脑给摔了，今天我就介绍一种我自己认为很简单的响应式布局
+需要的工具:
+lib-flexible（第三方库）
+sublime text
+mac终端
+
+1.sublime 安装cssrem下载地址">
+<meta name="twitter:image" content="https://github.com/hyb628/cssrem/raw/master/cssrem.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 用rem写傻瓜式响应式布局 | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                用rem写傻瓜式响应式布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-05-20T21:00:48+08:00" content="2016-05-20">
+              2016-05-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/20/用rem做傻瓜式响应式布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/用rem做傻瓜式响应式布局/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>想必大家做响应式布局的时候，计算百分比是最头疼的，恨不得把电脑给摔了，今天我就介绍一种我自己认为很简单的响应式布局</strong></p>
+<h2 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具:"></a>需要的工具:</h2><ul>
+<li><h3 id="lib-flexible（第三方库）"><a href="#lib-flexible（第三方库）" class="headerlink" title="lib-flexible（第三方库）"></a>lib-flexible（第三方库）</h3></li>
+<li><h3 id="sublime-text"><a href="#sublime-text" class="headerlink" title="sublime text"></a>sublime text</h3></li>
+<li><h3 id="mac终端"><a href="#mac终端" class="headerlink" title="mac终端"></a>mac终端</h3></li>
+</ul>
+<h1 id="1-sublime-安装cssrem"><a href="#1-sublime-安装cssrem" class="headerlink" title="1.sublime 安装cssrem"></a>1.sublime 安装cssrem</h1><p><a href="https://github.com/hyb628/cssrem" target="_blank" rel="external">下载地址</a></p>
+<p><img src="https://github.com/hyb628/cssrem/raw/master/cssrem.gif" title=""><br><a id="more"></a><br>该插件用于把css样式中的px单位自动转换成rem，请把克隆下来的仓库放入以下路径：Sublime Text -&gt; Preferences -&gt; Package Settings -&gt; cssrem；配置文件如下，请自行配置！！！</p>
+<ul>
+<li><h3 id="px-to-rem-px转rem的单位比例，默认为40。"><a href="#px-to-rem-px转rem的单位比例，默认为40。" class="headerlink" title="px_to_rem - px转rem的单位比例，默认为40。"></a>px_to_rem - px转rem的单位比例，默认为40。</h3></li>
+<li><h3 id="max-rem-fraction-length-px转rem的小数部分的最大长度。默认为6"><a href="#max-rem-fraction-length-px转rem的小数部分的最大长度。默认为6" class="headerlink" title="max_rem_fraction_length - px转rem的小数部分的最大长度。默认为6"></a>max_rem_fraction_length - px转rem的小数部分的最大长度。默认为6</h3></li>
+<li><h3 id="available-file-types-启用此插件的文件类型。默认为：-“-css”-“-less”-“-sass”-。"><a href="#available-file-types-启用此插件的文件类型。默认为：-“-css”-“-less”-“-sass”-。" class="headerlink" title="available_file_types - 启用此插件的文件类型。默认为：[“.css”, “.less”, “.sass”]。"></a>available_file_types - 启用此插件的文件类型。默认为：[“.css”, “.less”, “.sass”]。</h3></li>
+</ul>
+<h1 id="2-引用lib-flexible库"><a href="#2-引用lib-flexible库" class="headerlink" title="2.引用lib-flexible库"></a>2.引用lib-flexible库</h1><p>这个库是阿里出的一个开源第三方库，用来做移动端自适应的，大公司出的就是好，不信自己试一试！！！</p>
+<p><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="external">引用地址</a></p>
+<ul>
+<li><h3 id="引用方法"><a href="#引用方法" class="headerlink" title="引用方法"></a>引用方法</h3></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;script src=<span class="string">"http://g.tbcdn.cn/mtb/lib-flexible/&#123;&#123;version&#125;&#125;/??flexible_css.js,flexible.js"</span>&amp;gt;&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure>
+<p>不要直接引用，需要把这段链接中的给替换成版本号，如当前版本号为0.3.2<strong>注意改库需要在所有引用库和样式的最上方引用</strong></p>
+<h1 id="3-如何使用"><a href="#3-如何使用" class="headerlink" title="3.如何使用"></a>3.如何使用</h1><p>现在我们就可以拿起样式稿开始布局了，不要想着如何布局方便自适应，少计算百分比，因为你就不需要计算。写样式的时候你才知道有多爽！！！</p>
+<ul>
+<li><h3 id="1-修改px到rem的转换比例"><a href="#1-修改px到rem的转换比例" class="headerlink" title="1.修改px到rem的转换比例"></a>1.修改px到rem的转换比例</h3></li>
+</ul>
+<p>打开sbulime&gt;Preferences&gt;Browse Packages&gt;cssrem&gt;cssrem.sublime-settings把其中的“px_to_rem”后面的转换比例改成你拿到的样式稿的十分之一,如果你的样式稿是750px的，后面就改成75,记着前面带空格！！！</p>
+<ul>
+<li><h3 id="2-写css样式"><a href="#2-写css样式" class="headerlink" title="2.写css样式"></a>2.写css样式</h3></li>
+</ul>
+<p>在写css样式时，我们需要测量设计稿上各种数据，我们直接把测量好的数据写在css样式里，就想上图gif里面一样，回车自动转换为rem<strong>通篇都要以rem为单位，不管是字体，还是宽高，边距</strong></p>
+<ul>
+<li><h3 id="3-好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！"><a href="#3-好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！" class="headerlink" title="3.好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！"></a>3.好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！</h3></li>
+<li><h3 id="4-如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备-屏幕等级为1，这种设备的最大宽度是540px-如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加："><a href="#4-如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备-屏幕等级为1，这种设备的最大宽度是540px-如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加：" class="headerlink" title="4.如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备,屏幕等级为1，这种设备的最大宽度是540px;如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加："></a>4.如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备,屏幕等级为1，这种设备的最大宽度是540px;如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加：</h3></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">	font-size:*px; 		//其中*代表你样式稿宽度的十分之一</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。"><a href="#然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。" class="headerlink" title="然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。"></a>然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。</h3></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/响应式/" rel="tag">#响应式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/18/玩转Bootstrap(基础)/" rel="next" title="玩转Bootstrap（基础）">
+                <i class="fa fa-chevron-left"></i> 玩转Bootstrap（基础）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/21/WEB移动端常见问题总结/" rel="prev" title="WEB移动端常见问题总结">
+                WEB移动端常见问题总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/20/用rem做傻瓜式响应式布局/"
+           data-title="用rem写傻瓜式响应式布局" data-url="http://yoursite.com/2016/05/20/用rem做傻瓜式响应式布局/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需要的工具"><span class="nav-number">1.</span> <span class="nav-text">需要的工具:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lib-flexible（第三方库）"><span class="nav-number">1.1.</span> <span class="nav-text">lib-flexible（第三方库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime-text"><span class="nav-number">1.2.</span> <span class="nav-text">sublime text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac终端"><span class="nav-number">1.3.</span> <span class="nav-text">mac终端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-sublime-安装cssrem"><span class="nav-number"></span> <span class="nav-text">1.sublime 安装cssrem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#px-to-rem-px转rem的单位比例，默认为40。"><span class="nav-number">0.1.</span> <span class="nav-text">px_to_rem - px转rem的单位比例，默认为40。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max-rem-fraction-length-px转rem的小数部分的最大长度。默认为6"><span class="nav-number">0.2.</span> <span class="nav-text">max_rem_fraction_length - px转rem的小数部分的最大长度。默认为6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#available-file-types-启用此插件的文件类型。默认为：-“-css”-“-less”-“-sass”-。"><span class="nav-number">0.3.</span> <span class="nav-text">available_file_types - 启用此插件的文件类型。默认为：[“.css”, “.less”, “.sass”]。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-引用lib-flexible库"><span class="nav-number"></span> <span class="nav-text">2.引用lib-flexible库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用方法"><span class="nav-number">0.1.</span> <span class="nav-text">引用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-如何使用"><span class="nav-number"></span> <span class="nav-text">3.如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改px到rem的转换比例"><span class="nav-number">0.1.</span> <span class="nav-text">1.修改px到rem的转换比例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-写css样式"><span class="nav-number">0.2.</span> <span class="nav-text">2.写css样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！"><span class="nav-number">0.3.</span> <span class="nav-text">3.好像没有什么步骤了，就是这么简单，现在打开你写好的网页，在移动端看看吧，是不是充满屏幕，满满的都是爱啊！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备-屏幕等级为1，这种设备的最大宽度是540px-如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加："><span class="nav-number">0.4.</span> <span class="nav-text">4.如果你是在pc端看的话页面的最大宽度是540px，因为这个库把我们的电脑屏幕认定为低像素密度设备,屏幕等级为1，这种设备的最大宽度是540px;如果你想把它应用到pc端，你需要删除这个库，在css样式的最上方，添加：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。"><span class="nav-number">0.5.</span> <span class="nav-text">然后在css样式的最后添加几个媒体查询，只需要更改root下font-size的大小（记得单位是px，别enter敲顺手了，转换成rem了），就可以做成pc端的响应式页面了，再也不用写一堆别的样式，自适应就是这么简单。该自适应可不是流式布局。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://http://xiehan126.github.io/">解晗</a>
+</div>
+
+<div class="powered-by">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.解晗
+  </a>
+
+
+</div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+</body>
+</html>
