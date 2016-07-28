@@ -85,26 +85,23 @@
 
 
 <meta name="description" content="今天我们继续来探究一下php操作sql,对于数据库的操作无非就是CRUD，刚学的，就是增删改查四个单词的简称，以后看到了要知道是什么（create,read,update,delete）。
-上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！
-12$sql = &quot;SELECT * FROM table&quot;;$result = $mysqli-&amp;">
+上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php操作sql获得的返回值">
 <meta property="og:url" content="http://yoursite.com/2016/06/21/php操作sql获得的返回值/index.html">
 <meta property="og:site_name" content="码农小晗晗">
 <meta property="og:description" content="今天我们继续来探究一下php操作sql,对于数据库的操作无非就是CRUD，刚学的，就是增删改查四个单词的简称，以后看到了要知道是什么（create,read,update,delete）。
-上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！
-12$sql = &quot;SELECT * FROM table&quot;;$result = $mysqli-&amp;">
+上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！">
 <meta property="og:image" content="http://i4.piimg.com/4851/a194366e79323aff.png">
 <meta property="og:image" content="http://i4.piimg.com/4851/824287fc47d8bd38.png">
 <meta property="og:image" content="http://i4.piimg.com/4851/88fc698cb0ab9a4c.png">
 <meta property="og:image" content="http://i1.piimg.com/4851/bdac52c3bef59c7a.png">
 <meta property="og:image" content="http://i1.piimg.com/4851/42c5ad7265c223ef.png">
-<meta property="og:updated_time" content="2016-06-27T12:02:34.000Z">
+<meta property="og:updated_time" content="2016-07-28T02:20:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php操作sql获得的返回值">
 <meta name="twitter:description" content="今天我们继续来探究一下php操作sql,对于数据库的操作无非就是CRUD，刚学的，就是增删改查四个单词的简称，以后看到了要知道是什么（create,read,update,delete）。
-上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！
-12$sql = &quot;SELECT * FROM table&quot;;$result = $mysqli-&amp;">
+上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！">
 <meta name="twitter:image" content="http://i4.piimg.com/4851/a194366e79323aff.png">
 
 
@@ -279,9 +276,8 @@
 
       
         <p>今天我们继续来探究一下php操作sql,对于数据库的操作无非就是CRUD，刚学的，就是增删改查四个单词的简称，以后看到了要知道是什么（create,read,update,delete）。</p>
-<p>上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！</p>
+<p>上次的博客已经教大家如何使用php对mysql进行操作了，那么操作之后的返回值是什么呢。下面就进入正题！！！<br><a id="more"></a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">"SELECT * FROM table"</span>;</span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$mysqli</span>-&gt;query(<span class="variable">$sql</span>);</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <p><strong>那么这个$result在CRUD执行之后到底会返回什么鬼呢？如果按常理，会返回两种结果，无非就是成功与不成功，这只是猜想，其实你的猜想对了一半</strong></p>
 <h3 id="执行-增删改-result的值"><a href="#执行-增删改-result的值" class="headerlink" title="执行 增删改 $result的值"></a>执行 增删改 $result的值</h3><p><strong>要查看结果，需要用var_dump()打印其结果</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(<span class="variable">$result</span>);</span><br></pre></td></tr></table></figure>
