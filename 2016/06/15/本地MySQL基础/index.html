@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Mysql," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
+环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
+MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地MySQL基础">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/本地MySQL基础/index.html">
+<meta property="og:site_name" content="码农小晗晗">
+<meta property="og:description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
+环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
+MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061501.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061502.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061503.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061504.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061505.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061506.png">
+<meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061507.png">
+<meta property="og:updated_time" content="2016-07-28T01:31:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地MySQL基础">
+<meta name="twitter:description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
+环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
+MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta name="twitter:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061501.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 本地MySQL基础 | 码农小晗晗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">码农小晗晗</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                本地MySQL基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T19:07:00+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/本地MySQL基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/本地MySQL基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<p>(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)</p>
+<h1 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h1><p>安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。</p>
+<h4 id="MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs"><a href="#MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs" class="headerlink" title="MAC系统下文件路径为：Mac-&gt;应用程序-&gt;XAMPP-&gt;htdocs"></a>MAC系统下文件路径为：Mac-&gt;应用程序-&gt;XAMPP-&gt;htdocs</h4><h2 id="基础知识恶补："><a href="#基础知识恶补：" class="headerlink" title="基础知识恶补："></a>基础知识恶补：</h2><ol>
+<li>本地环境下，测试地址为：<code>localhost</code>,直接在浏览器地址栏输入即可。或者是<code>127.0.0.1</code> 或者是 <code>您的IP地址</code>。</li>
+<li>数据库是由很多表(table)构造起来的，且只有一个<code>主键</code>；</li>
+<li><p>数据库操作的基本机构案列：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$sqli = new mysqli(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;shh160&quot;);</span><br><span class="line">if($sqli-&gt;connect_errno)&#123;</span><br><span class="line">	die($mysqli-&gt;connect_error);</span><br><span class="line">&#125;</span><br><span class="line">$sql = &quot;SQL语句 增 查 改 删&quot;;</span><br><span class="line">$sqli-&gt;query(&quot;set names utf8&quot;);</span><br><span class="line">$result = $sqli-&gt;query($sql);</span><br><span class="line">	coding...数据的操作在这里；</span><br><span class="line">$sqli-&gt;close();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="可视化操作数据库："><a href="#可视化操作数据库：" class="headerlink" title="可视化操作数据库："></a>可视化操作数据库：</h1><p><a href="http://127.0.0.1/phpmyadmin/" target="_blank" rel="external">点我打开phpmysql</a>，看到如下界面，先简单介绍这个界面。左边是你的数据库名称，，我们需要打交道的便是SQL的部分，，还有注意我箭头标识的编码方式。</p>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061501.png" alt=""></p>
+<h3 id="新建一个数据库"><a href="#新建一个数据库" class="headerlink" title="新建一个数据库"></a>新建一个数据库</h3><p>点击左边的<code>New</code>，当你的中文输出时出现不正常显示时，最好将编码方式统一选择为<code>utf8_unicode_ci</code>.</p>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061502.png" alt=""></p>
+<h3 id="新建一个表单"><a href="#新建一个表单" class="headerlink" title="新建一个表单"></a>新建一个表单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE students(id int(10) PRIMARY KEY AUTO_INCREMENT,name CHAR(10) DEFAULT &apos;用户&apos;,sex CHAR(3) DEFAULT &apos;男&apos;,age int(3) DEFAULT 18);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061503.png" alt=""><br><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061504.png" alt=""></p>
+<h5 id="从2张图看，还缺少数据。"><a href="#从2张图看，还缺少数据。" class="headerlink" title="从2张图看，还缺少数据。"></a>从2张图看，还缺少数据。</h5><h3 id="新建数据（增）"><a href="#新建数据（增）" class="headerlink" title="新建数据（增）"></a>新建数据（增）</h3><p>回到SQL界面，<strong>增加数据</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO students(id, name, sex, age) VALUES (NULL,&quot;张三&quot;,&quot;女&quot;,30),(NULL,&quot;李四&quot;,&quot;人妖&quot;,23);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061505.png" alt=""></p>
+<p><strong>文字总结如下：</strong></p>
+<ol>
+<li>INSERT INTO 表名（字段1，字段2）VALUES(字段1的值，字段2的值)，(字段1的值，字段2的值)，(字段1的值，字段2的值)；</li>
+</ol>
+<h3 id="查找数据（查）"><a href="#查找数据（查）" class="headerlink" title="查找数据（查）"></a>查找数据（查）</h3><p>现数据库表单内容如下：</p>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061506.png" alt=""></p>
+<ul>
+<li>要求1，找到所有姓孙的<br>其实这里属于模糊搜索法， 运用like 搜索，通过在关键字后面添加”%”，完成以什么开头的查询</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM students WHERE name LIKE &quot;孙%&quot;;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061507.png" alt=""></p>
+<p>以下截图略~</p>
+<ul>
+<li>要求2，找到所有以孙结尾的<br>通过在关键字前面添加”%”，完成以什么开头的查询</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM students WHERE name LIKE &quot;%孙&quot;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要求3，找到所有包含孙的<br>通过在关键字前后添加”%”，完成以什么开头的查询</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM students WHERE name LIKE &quot;%孙%&quot;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要求4，找到年龄大于18的3个人</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM students WHERE age&gt;18 LIMIT 3;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要求5，找到性别是女的姓名和年龄</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,age FROM students WHERE sex=&quot;女&quot;;</span><br></pre></td></tr></table></figure>
+<h4 id="希望通过上面的5个例子能让你学习到有关查询的方法。"><a href="#希望通过上面的5个例子能让你学习到有关查询的方法。" class="headerlink" title="希望通过上面的5个例子能让你学习到有关查询的方法。"></a>希望通过上面的5个例子能让你学习到有关查询的方法。</h4><p><strong>文字总结如下：</strong></p>
+<ol>
+<li><p>查询数据<br>从表里面查询字段1，字段2，字段3。表里面有多少条数据，就会显示多少条字段1，字段2，字段3的内容。<br>SELECT 字段1，字段2，字段3。。 FROM 表名</p>
+</li>
+<li><p>查询所有字段，星号是一个通配符，可以表示所有字段<br>SELETE * FROM 表名</p>
+</li>
+<li><p>查询符合条件的数据<br>SELECT 字段1，字段2，字段3 FROM 表名 WHERE 字段=值</p>
+</li>
+<li><p>模糊查询<br>SELECT 字段1，字段2，字段3 FROM 表名 WHERE 字段 LIKE “%值%”</p>
+</li>
+</ol>
+<h3 id="更新数据（改）"><a href="#更新数据（改）" class="headerlink" title="更新数据（改）"></a>更新数据（改）</h3><p>UPDATE 表名 SET 字段=值，字段=值 WHERE id=  ；</p>
+<h3 id="删除数据（删）"><a href="#删除数据（删）" class="headerlink" title="删除数据（删）"></a>删除数据（删）</h3><p>DELETE FROM 表名 WHERE id= ；</p>
+<h4 id="删除数据表单"><a href="#删除数据表单" class="headerlink" title="删除数据表单"></a>删除数据表单</h4><p>DROP TABLE 表名</p>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><p>DROP DATABASE 数据库名</p>
+<hr>
+<h5 id="End"><a href="#End" class="headerlink" title="End"></a>End</h5>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mysql/" rel="tag">#Mysql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/15/手机端页面的注意事项/" rel="next" title="手机端页面的注意事项">
+                <i class="fa fa-chevron-left"></i> 手机端页面的注意事项
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/16/前后端数据交互方法/" rel="prev" title="前后端数据交互方法">
+                前后端数据交互方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/15/本地MySQL基础/"
+           data-title="本地MySQL基础" data-url="http://yoursite.com/2016/06/15/本地MySQL基础/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="解晗" />
+          <p class="site-author-name" itemprop="name">解晗</p>
+          <p class="site-description motion-element" itemprop="description">web前端的学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备："><span class="nav-number">1.</span> <span class="nav-text">环境准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">MAC系统下文件路径为：Mac->应用程序->XAMPP->htdocs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识恶补："><span class="nav-number">1.1.</span> <span class="nav-text">基础知识恶补：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化操作数据库："><span class="nav-number">2.</span> <span class="nav-text">可视化操作数据库：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个数据库"><span class="nav-number">2.0.1.</span> <span class="nav-text">新建一个数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个表单"><span class="nav-number">2.0.2.</span> <span class="nav-text">新建一个表单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从2张图看，还缺少数据。"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">从2张图看，还缺少数据。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建数据（增）"><span class="nav-number">2.0.3.</span> <span class="nav-text">新建数据（增）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找数据（查）"><span class="nav-number">2.0.4.</span> <span class="nav-text">查找数据（查）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#希望通过上面的5个例子能让你学习到有关查询的方法。"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">希望通过上面的5个例子能让你学习到有关查询的方法。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据（改）"><span class="nav-number">2.0.5.</span> <span class="nav-text">更新数据（改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据（删）"><span class="nav-number">2.0.6.</span> <span class="nav-text">删除数据（删）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据表单"><span class="nav-number">2.0.6.1.</span> <span class="nav-text">删除数据表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据库"><span class="nav-number">2.0.6.2.</span> <span class="nav-text">删除数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#End"><span class="nav-number">2.0.6.2.1.</span> <span class="nav-text">End</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">解晗</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://http://xiehan126.github.io/">解晗</a>
+</div>
+
+<div class="powered-by">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.解晗
+  </a>
+
+
+</div>
+
+  <div class="powered-by">
+      <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+  </div>
+
+  <div class="theme-info">
+    <span id="busuanzi_container_site_uv">
+      本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+  </div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"maii"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+</body>
+</html>
