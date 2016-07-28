@@ -84,16 +84,12 @@
 
 
 
-<meta name="description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
-环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
-MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta name="description" content="Mysql基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地MySQL基础">
 <meta property="og:url" content="http://yoursite.com/2016/06/15/本地MySQL基础/index.html">
 <meta property="og:site_name" content="码农小晗晗">
-<meta property="og:description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
-环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
-MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta property="og:description" content="Mysql基础">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061501.png">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061502.png">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061503.png">
@@ -101,12 +97,10 @@ MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061505.png">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061506.png">
 <meta property="og:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061507.png">
-<meta property="og:updated_time" content="2016-07-28T01:31:22.000Z">
+<meta property="og:updated_time" content="2016-07-28T01:46:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地MySQL基础">
-<meta name="twitter:description" content="(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)
-环境准备：安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。
-MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
+<meta name="twitter:description" content="Mysql基础">
 <meta name="twitter:image" content="http://7xjdah.com1.z0.glb.clouddn.com/pic2016061501.png">
 
 
@@ -280,7 +274,7 @@ MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
       
 
       
-        <a id="more"></a>
+        <h5 id="Mysql基础"><a href="#Mysql基础" class="headerlink" title="Mysql基础"></a>Mysql基础</h5><a id="more"></a>
 <p>(tips:本页面使用的 XAMPP for OS X 5.6.14，PHP版本为：5.6.14，MySQL版本为：mysqlnd 5.0.11。windows操作系统以及真实的操作环境，请根据实际情况进行操作)</p>
 <h1 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h1><p>安装好 XAPMM ，打开并启动 所有服务(“Start All”),注意，本教程中所有使用的文件均在服务器环境下。</p>
 <h4 id="MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs"><a href="#MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs" class="headerlink" title="MAC系统下文件路径为：Mac-&gt;应用程序-&gt;XAMPP-&gt;htdocs"></a>MAC系统下文件路径为：Mac-&gt;应用程序-&gt;XAMPP-&gt;htdocs</h4><h2 id="基础知识恶补："><a href="#基础知识恶补：" class="headerlink" title="基础知识恶补："></a>基础知识恶补：</h2><ol>
@@ -494,7 +488,7 @@ MAC系统下文件路径为：Mac-&amp;gt;应用程序-&amp;gt">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备："><span class="nav-number">1.</span> <span class="nav-text">环境准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">MAC系统下文件路径为：Mac->应用程序->XAMPP->htdocs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识恶补："><span class="nav-number">1.1.</span> <span class="nav-text">基础知识恶补：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化操作数据库："><span class="nav-number">2.</span> <span class="nav-text">可视化操作数据库：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个数据库"><span class="nav-number">2.0.1.</span> <span class="nav-text">新建一个数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个表单"><span class="nav-number">2.0.2.</span> <span class="nav-text">新建一个表单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从2张图看，还缺少数据。"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">从2张图看，还缺少数据。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建数据（增）"><span class="nav-number">2.0.3.</span> <span class="nav-text">新建数据（增）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找数据（查）"><span class="nav-number">2.0.4.</span> <span class="nav-text">查找数据（查）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#希望通过上面的5个例子能让你学习到有关查询的方法。"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">希望通过上面的5个例子能让你学习到有关查询的方法。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据（改）"><span class="nav-number">2.0.5.</span> <span class="nav-text">更新数据（改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据（删）"><span class="nav-number">2.0.6.</span> <span class="nav-text">删除数据（删）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据表单"><span class="nav-number">2.0.6.1.</span> <span class="nav-text">删除数据表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据库"><span class="nav-number">2.0.6.2.</span> <span class="nav-text">删除数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#End"><span class="nav-number">2.0.6.2.1.</span> <span class="nav-text">End</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mysql基础"><span class="nav-number">1.</span> <span class="nav-text">Mysql基础</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备："><span class="nav-number"></span> <span class="nav-text">环境准备：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC系统下文件路径为：Mac-gt-应用程序-gt-XAMPP-gt-htdocs"><span class="nav-number"></span> <span class="nav-text">MAC系统下文件路径为：Mac->应用程序->XAMPP->htdocs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识恶补："><span class="nav-number"></span> <span class="nav-text">基础知识恶补：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化操作数据库："><span class="nav-number"></span> <span class="nav-text">可视化操作数据库：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个数据库"><span class="nav-number"></span> <span class="nav-text">新建一个数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个表单"><span class="nav-number"></span> <span class="nav-text">新建一个表单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从2张图看，还缺少数据。"><span class="nav-number">1.</span> <span class="nav-text">从2张图看，还缺少数据。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建数据（增）"><span class="nav-number"></span> <span class="nav-text">新建数据（增）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找数据（查）"><span class="nav-number"></span> <span class="nav-text">查找数据（查）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#希望通过上面的5个例子能让你学习到有关查询的方法。"><span class="nav-number"></span> <span class="nav-text">希望通过上面的5个例子能让你学习到有关查询的方法。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据（改）"><span class="nav-number"></span> <span class="nav-text">更新数据（改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据（删）"><span class="nav-number"></span> <span class="nav-text">删除数据（删）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据表单"><span class="nav-number"></span> <span class="nav-text">删除数据表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据库"><span class="nav-number"></span> <span class="nav-text">删除数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#End"><span class="nav-number">1.</span> <span class="nav-text">End</span></a></li></ol></div>
             
           </div>
         </section>
